@@ -28,7 +28,7 @@
     <span jhiTranslate="profEtudiantApp.pW.home.notFound">Aucun PW trouvé</span>
   </div>
 
-  <div class="table-responsive table-entities" id="entities" *ngIf="pWS && pWS.length > 0">
+  <div class="table-responsive table-bordered" id="entities" *ngIf="pWS && pWS.length > 0">
     <table class="table table-striped" aria-describedby="page-heading">
       <thead>
         <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
@@ -68,7 +68,11 @@
               <fa-icon class="p-1" icon="sort"></fa-icon>
             </div>
           </th>
-          <th scope="col"></th>
+          <th scope="col">
+            <div class="d-flex justify-content-center">
+              <span>Action</span>
+            </div>
+          </th>
         </tr>
       </thead>
       <tbody>
@@ -94,18 +98,18 @@
             </span>
           </td>
           <td class="text-end">
-            <div class="btn-group">
-              <a [routerLink]="['/pw', pW.id, 'view']" class="btn btn-info btn-sm" data-cy="entityDetailsButton">
+            <div class="d-flex justify-content-center">
+              <a [routerLink]="['/pw', pW.id, 'view']" class="btn btn-outline-info btn-sm" data-cy="entityDetailsButton">
                 <fa-icon icon="eye"></fa-icon>
                 <span class="d-none d-md-inline" jhiTranslate="entity.action.view">Voir</span>
               </a>
 
-              <a [routerLink]="['/pw', pW.id, 'edit']" class="btn btn-primary btn-sm" data-cy="entityEditButton">
+              <a [routerLink]="['/pw', pW.id, 'edit']" class="btn btn-outline-primary btn-sm" data-cy="entityEditButton">
                 <fa-icon icon="pencil-alt"></fa-icon>
                 <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Editer</span>
               </a>
 
-              <button type="submit" (click)="delete(pW)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+              <button type="submit" (click)="delete(pW)" class="btn btn-outline-danger btn-sm" data-cy="entityDeleteButton">
                 <fa-icon icon="times"></fa-icon>
                 <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Supprimer</span>
               </button>
