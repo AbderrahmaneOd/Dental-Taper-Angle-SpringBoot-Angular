@@ -3,7 +3,7 @@
     <span jhiTranslate="profEtudiantApp.tooth.home.title">Teeth</span>
 
     <div class="d-flex justify-content-end">
-      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+      <button class="btn btn-success btn-sm me-2" (click)="load()" [disabled]="isLoading">
         <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
         <span jhiTranslate="profEtudiantApp.tooth.home.refreshListLabel">Actualiser la liste</span>
       </button>
@@ -11,7 +11,7 @@
       <button
         id="jh-create-entity"
         data-cy="entityCreateButton"
-        class="btn btn-primary jh-create-entity create-tooth"
+        class="btn btn-secondary btn-sm jh-create-entity create-tooth"
         [routerLink]="['/tooth/new']"
       >
         <fa-icon icon="plus"></fa-icon>

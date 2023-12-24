@@ -3,7 +3,7 @@
     <span jhiTranslate="profEtudiantApp.professor.home.title">Professors</span>
 
     <div class="d-flex justify-content-end">
-      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+      <button class="btn btn-success btn-sm me-2" (click)="load()" [disabled]="isLoading">
         <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
         <span jhiTranslate="profEtudiantApp.professor.home.refreshListLabel">Actualiser la liste</span>
       </button>
@@ -11,7 +11,7 @@
       <button
         id="jh-create-entity"
         data-cy="entityCreateButton"
-        class="btn btn-primary jh-create-entity create-professor"
+        class="btn btn-secondary btn-sm jh-create-entity create-professor"
         [routerLink]="['/professor/new']"
       >
         <fa-icon icon="plus"></fa-icon>
