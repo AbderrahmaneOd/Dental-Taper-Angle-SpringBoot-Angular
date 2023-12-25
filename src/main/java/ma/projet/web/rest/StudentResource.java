@@ -160,7 +160,7 @@ public class StudentResource {
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of students in body.
      */
     @GetMapping("")
-    @PreAuthorize("hasAuthority(\"" + AuthoritiesConstants.PROFESSOR + "\")")
+    //@PreAuthorize("hasAuthority(\"" + AuthoritiesConstants.PROFESSOR + "\")")
     public List<Student> getAllStudents(@RequestParam(required = false, defaultValue = "true") boolean eagerload) {
         log.debug("REST request to get all Students");
         if (eagerload) {
