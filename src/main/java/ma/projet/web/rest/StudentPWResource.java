@@ -9,11 +9,13 @@ import java.util.Objects;
 import java.util.Optional;
 import ma.projet.domain.StudentPW;
 import ma.projet.repository.StudentPWRepository;
+import ma.projet.security.AuthoritiesConstants;
 import ma.projet.web.rest.errors.BadRequestAlertException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 import tech.jhipster.web.util.HeaderUtil;
@@ -51,7 +53,7 @@ public class StudentPWResource {
     public ResponseEntity<StudentPW> createStudentPW(@Valid @RequestBody StudentPW studentPW) throws URISyntaxException {
         log.debug("REST request to save StudentPW : {}", studentPW);
         if (studentPW.getId() != null) {
-            throw new BadRequestAlertException("A new studentPW cannot already have an ID", ENTITY_NAME, "idexists");
+            throw new BadRequestAlertException("A new studentPW cannot already have an ID", ENTITY_NAME, "id exists");
         }
         StudentPW result = studentPWRepository.save(studentPW);
         return ResponseEntity
@@ -190,6 +192,18 @@ public class StudentPWResource {
         log.debug("REST request to get StudentPW : {}", id);
         Optional<StudentPW> studentPW = studentPWRepository.findOneWithEagerRelationships(id);
         return ResponseUtil.wrapOrNotFound(studentPW);
+    }
+
+    /**
+     * {@code GET  /student-pws/student/:id} : get the "id" studentPW.
+     *
+     * @param id the id of the student to retrieve it associated PW.
+     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the studentPW, or with status {@code 404 (Not Found)}.
+     */
+    @GetMapping("/student/{id}")
+    public List<StudentPW> getPWsByStudentID(@PathVariable Long id) {
+        log.debug("REST request to get StudentPW : {}", id);
+        return studentPWRepository.findStudentPWSByStudentId(id);
     }
 
     /**
