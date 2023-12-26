@@ -4,14 +4,16 @@ import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.util.List;
-import java.util.Objects;
-import java.util.Optional;
+import java.util.*;
+import ma.projet.domain.Groupe;
 import ma.projet.domain.PW;
+import ma.projet.domain.Student;
 import ma.projet.repository.PWRepository;
+import ma.projet.repository.StudentRepository;
 import ma.projet.web.rest.errors.BadRequestAlertException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
@@ -35,6 +37,9 @@ public class PWResource {
     private String applicationName;
 
     private final PWRepository pWRepository;
+
+    @Autowired
+    private StudentRepository studentRepository;
 
     public PWResource(PWRepository pWRepository) {
         this.pWRepository = pWRepository;
@@ -171,6 +176,25 @@ public class PWResource {
         log.debug("REST request to get PW : {}", id);
         Optional<PW> pW = pWRepository.findOneWithEagerRelationships(id);
         return ResponseUtil.wrapOrNotFound(pW);
+    }
+
+    @GetMapping("/student/{id}")
+    public Set<PW> getPWsForStudent(@PathVariable Long id) {
+        // Récupérer l'étudiant par son ID
+        Student student = studentRepository.getStudentsById(id);
+
+        if (student != null && student.getGroupe() != null) {
+            // Récupérer le groupe de l'étudiant
+            Groupe groupe = student.getGroupe();
+
+            // Récupérer les PWs associés à ce groupe
+            Set<PW> pws = groupe.getPws();
+
+            return pws;
+        }
+
+        // Si l'étudiant ou le groupe n'existe pas, retourner une liste vide ou une réponse d'erreur appropriée
+        return new HashSet<>();
     }
 
     /**
