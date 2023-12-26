@@ -20,7 +20,6 @@ entity PW {
     docs AnyBlob
 }
 entity StudentPW {
-    time String
     imageFront ImageBlob
     imageSide ImageBlob
     date LocalDate

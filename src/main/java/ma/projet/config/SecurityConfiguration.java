@@ -81,10 +81,6 @@ public class SecurityConfiguration {
                     .requestMatchers(mvc.pattern("/api/authenticate")).permitAll()
                     .requestMatchers(mvc.pattern("/api/register")).permitAll()
                     .requestMatchers(mvc.pattern("/api/activate")).permitAll()
-                    .requestMatchers(mvc.pattern("/api/users")).permitAll() //
-                    .requestMatchers(mvc.pattern("/api/students")).permitAll() //
-                    .requestMatchers(mvc.pattern("/api/student-pws/**")).permitAll() //
-                    .requestMatchers(mvc.pattern("/api/pws/**")).permitAll() //
                     .requestMatchers(mvc.pattern("/**")).permitAll() //
                     .requestMatchers(mvc.pattern("/api/account/reset-password/init")).permitAll()
                     .requestMatchers(mvc.pattern("/api/account/reset-password/finish")).permitAll()
