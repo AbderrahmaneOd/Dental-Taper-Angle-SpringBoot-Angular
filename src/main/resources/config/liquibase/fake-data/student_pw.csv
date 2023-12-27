@@ -1,4 +1,4 @@
-id;image_front;image_front_content_type;image_side;image_side_content_type;date;angle_interne_1;angle_interne_2;angle_externe_1;angle_externe_2;angledepouille_1;angledepouille_2;angle_convergence;student_id;pw_id
+id;image_front;image_front_content_type;image_side;image_side_content_type;date;angle_interne_g;angle_interne_d;angle_externe_g;angle_externe_d;angledepouille_g;angledepouille_d;angle_convergence;student_id;pw_id
 1;../fake-data/blob/hipster.png;image/png;../fake-data/blob/hipster.png;image/png;2023-12-23;20707.42;1226.31;7870.25;21809.42;6586.31;27597.99;15267.08;1;1
 2;../fake-data/blob/hipster.png;image/png;../fake-data/blob/hipster.png;image/png;2023-12-22;11694.38;16496.77;4665.99;2477.71;24809.26;23599.71;32522.73;2;2
 3;../fake-data/blob/hipster.png;image/png;../fake-data/blob/hipster.png;image/png;2023-12-22;3496.27;2428.36;1144.71;21661.17;26434.27;13911.87;9925.53;2;3

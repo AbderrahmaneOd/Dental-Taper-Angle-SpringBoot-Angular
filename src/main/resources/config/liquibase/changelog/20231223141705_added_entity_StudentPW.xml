@@ -29,22 +29,22 @@
             <column name="date" type="date">
                 <constraints nullable="true" />
             </column>
-            <column name="angle_interne_1" type="double">
+            <column name="angle_interne_g" type="double">
                 <constraints nullable="true" />
             </column>
-            <column name="angle_interne_2" type="double">
+            <column name="angle_interne_d" type="double">
                 <constraints nullable="true" />
             </column>
-            <column name="angle_externe_1" type="double">
+            <column name="angle_externe_g" type="double">
                 <constraints nullable="true" />
             </column>
-            <column name="angle_externe_2" type="double">
+            <column name="angle_externe_d" type="double">
                 <constraints nullable="true" />
             </column>
-            <column name="angledepouille_1" type="double">
+            <column name="angledepouille_g" type="double">
                 <constraints nullable="true" />
             </column>
-            <column name="angledepouille_2" type="double">
+            <column name="angledepouille_d" type="double">
                 <constraints nullable="true" />
             </column>
             <column name="angle_convergence" type="double">
@@ -82,12 +82,12 @@
             <column name="image_side" type="blob"/>
             <column name="image_side_content_type" type="string"/>
             <column name="date" type="date"/>
-            <column name="angle_interne_1" type="numeric"/>
-            <column name="angle_interne_2" type="numeric"/>
-            <column name="angle_externe_1" type="numeric"/>
-            <column name="angle_externe_2" type="numeric"/>
-            <column name="angledepouille_1" type="numeric"/>
-            <column name="angledepouille_2" type="numeric"/>
+            <column name="angle_interne_g" type="numeric"/>
+            <column name="angle_interne_d" type="numeric"/>
+            <column name="angle_externe_g" type="numeric"/>
+            <column name="angle_externe_d" type="numeric"/>
+            <column name="angledepouille_g" type="numeric"/>
+            <column name="angledepouille_d" type="numeric"/>
             <column name="angle_convergence" type="numeric"/>
             <column name="student_id" type="numeric"/>
             <column name="pw_id" type="numeric"/>

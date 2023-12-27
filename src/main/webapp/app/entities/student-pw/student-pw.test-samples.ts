@@ -13,9 +13,9 @@ export const sampleWithPartialData: IStudentPW = {
   imageSide: '../fake-data/blob/hipster.png',
   imageSideContentType: 'unknown',
   date: dayjs('2023-12-23'),
-  angleExterne1: 25041.81,
-  angleExterne2: 28624.01,
-  angledepouille1: 22099.67,
+  angleExterneG: 25041.81,
+  angleExterneD: 28624.01,
+  angledepouilleG: 22099.67,
 };
 
 export const sampleWithFullData: IStudentPW = {
@@ -25,12 +25,12 @@ export const sampleWithFullData: IStudentPW = {
   imageSide: '../fake-data/blob/hipster.png',
   imageSideContentType: 'unknown',
   date: dayjs('2023-12-22'),
-  angleInterne1: 13105.65,
-  angleInterne2: 22658.42,
-  angleExterne1: 20826.35,
-  angleExterne2: 30303.16,
-  angledepouille1: 8705.03,
-  angledepouille2: 3280.11,
+  angleInterneG: 13105.65,
+  angleInterneD: 22658.42,
+  angleExterneG: 20826.35,
+  angleExterneD: 30303.16,
+  angledepouilleG: 8705.03,
+  angledepouilleD: 3280.11,
   angleConvergence: 1925.93,
 };
 

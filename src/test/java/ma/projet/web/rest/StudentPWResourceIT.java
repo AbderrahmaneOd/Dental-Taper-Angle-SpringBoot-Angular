@@ -56,23 +56,23 @@ class StudentPWResourceIT {
     private static final LocalDate DEFAULT_DATE = LocalDate.ofEpochDay(0L);
     private static final LocalDate UPDATED_DATE = LocalDate.now(ZoneId.systemDefault());
 
-    private static final Double DEFAULT_ANGLE_INTERNE_1 = 1D;
-    private static final Double UPDATED_ANGLE_INTERNE_1 = 2D;
+    private static final Double DEFAULT_ANGLE_INTERNE_G = 1D;
+    private static final Double UPDATED_ANGLE_INTERNE_G = 2D;
 
-    private static final Double DEFAULT_ANGLE_INTERNE_2 = 1D;
-    private static final Double UPDATED_ANGLE_INTERNE_2 = 2D;
+    private static final Double DEFAULT_ANGLE_INTERNE_D = 1D;
+    private static final Double UPDATED_ANGLE_INTERNE_D = 2D;
 
-    private static final Double DEFAULT_ANGLE_EXTERNE_1 = 1D;
-    private static final Double UPDATED_ANGLE_EXTERNE_1 = 2D;
+    private static final Double DEFAULT_ANGLE_EXTERNE_G = 1D;
+    private static final Double UPDATED_ANGLE_EXTERNE_G = 2D;
 
-    private static final Double DEFAULT_ANGLE_EXTERNE_2 = 1D;
-    private static final Double UPDATED_ANGLE_EXTERNE_2 = 2D;
+    private static final Double DEFAULT_ANGLE_EXTERNE_D = 1D;
+    private static final Double UPDATED_ANGLE_EXTERNE_D = 2D;
 
-    private static final Double DEFAULT_ANGLEDEPOUILLE_1 = 1D;
-    private static final Double UPDATED_ANGLEDEPOUILLE_1 = 2D;
+    private static final Double DEFAULT_ANGLEDEPOUILLE_G = 1D;
+    private static final Double UPDATED_ANGLEDEPOUILLE_G = 2D;
 
-    private static final Double DEFAULT_ANGLEDEPOUILLE_2 = 1D;
-    private static final Double UPDATED_ANGLEDEPOUILLE_2 = 2D;
+    private static final Double DEFAULT_ANGLEDEPOUILLE_D = 1D;
+    private static final Double UPDATED_ANGLEDEPOUILLE_D = 2D;
 
     private static final Double DEFAULT_ANGLE_CONVERGENCE = 1D;
     private static final Double UPDATED_ANGLE_CONVERGENCE = 2D;
@@ -110,12 +110,12 @@ class StudentPWResourceIT {
             .imageSide(DEFAULT_IMAGE_SIDE)
             .imageSideContentType(DEFAULT_IMAGE_SIDE_CONTENT_TYPE)
             .date(DEFAULT_DATE)
-            .angleInterne1(DEFAULT_ANGLE_INTERNE_1)
-            .angleInterne2(DEFAULT_ANGLE_INTERNE_2)
-            .angleExterne1(DEFAULT_ANGLE_EXTERNE_1)
-            .angleExterne2(DEFAULT_ANGLE_EXTERNE_2)
-            .angledepouille1(DEFAULT_ANGLEDEPOUILLE_1)
-            .angledepouille2(DEFAULT_ANGLEDEPOUILLE_2)
+            .angleInterneG(DEFAULT_ANGLE_INTERNE_G)
+            .angleInterneD(DEFAULT_ANGLE_INTERNE_D)
+            .angleExterneG(DEFAULT_ANGLE_EXTERNE_G)
+            .angleExterneD(DEFAULT_ANGLE_EXTERNE_D)
+            .angledepouilleG(DEFAULT_ANGLEDEPOUILLE_G)
+            .angledepouilleD(DEFAULT_ANGLEDEPOUILLE_D)
             .angleConvergence(DEFAULT_ANGLE_CONVERGENCE);
         // Add required entity
         Student student;
@@ -153,12 +153,12 @@ class StudentPWResourceIT {
             .imageSide(UPDATED_IMAGE_SIDE)
             .imageSideContentType(UPDATED_IMAGE_SIDE_CONTENT_TYPE)
             .date(UPDATED_DATE)
-            .angleInterne1(UPDATED_ANGLE_INTERNE_1)
-            .angleInterne2(UPDATED_ANGLE_INTERNE_2)
-            .angleExterne1(UPDATED_ANGLE_EXTERNE_1)
-            .angleExterne2(UPDATED_ANGLE_EXTERNE_2)
-            .angledepouille1(UPDATED_ANGLEDEPOUILLE_1)
-            .angledepouille2(UPDATED_ANGLEDEPOUILLE_2)
+            .angleInterneG(UPDATED_ANGLE_INTERNE_G)
+            .angleInterneD(UPDATED_ANGLE_INTERNE_D)
+            .angleExterneG(UPDATED_ANGLE_EXTERNE_G)
+            .angleExterneD(UPDATED_ANGLE_EXTERNE_D)
+            .angledepouilleG(UPDATED_ANGLEDEPOUILLE_G)
+            .angledepouilleD(UPDATED_ANGLEDEPOUILLE_D)
             .angleConvergence(UPDATED_ANGLE_CONVERGENCE);
         // Add required entity
         Student student;
@@ -211,12 +211,12 @@ class StudentPWResourceIT {
         assertThat(testStudentPW.getImageSide()).isEqualTo(DEFAULT_IMAGE_SIDE);
         assertThat(testStudentPW.getImageSideContentType()).isEqualTo(DEFAULT_IMAGE_SIDE_CONTENT_TYPE);
         assertThat(testStudentPW.getDate()).isEqualTo(DEFAULT_DATE);
-        assertThat(testStudentPW.getAngleInterne1()).isEqualTo(DEFAULT_ANGLE_INTERNE_1);
-        assertThat(testStudentPW.getAngleInterne2()).isEqualTo(DEFAULT_ANGLE_INTERNE_2);
-        assertThat(testStudentPW.getAngleExterne1()).isEqualTo(DEFAULT_ANGLE_EXTERNE_1);
-        assertThat(testStudentPW.getAngleExterne2()).isEqualTo(DEFAULT_ANGLE_EXTERNE_2);
-        assertThat(testStudentPW.getAngledepouille1()).isEqualTo(DEFAULT_ANGLEDEPOUILLE_1);
-        assertThat(testStudentPW.getAngledepouille2()).isEqualTo(DEFAULT_ANGLEDEPOUILLE_2);
+        assertThat(testStudentPW.getAngleInterneG()).isEqualTo(DEFAULT_ANGLE_INTERNE_G);
+        assertThat(testStudentPW.getAngleInterneD()).isEqualTo(DEFAULT_ANGLE_INTERNE_D);
+        assertThat(testStudentPW.getAngleExterneG()).isEqualTo(DEFAULT_ANGLE_EXTERNE_G);
+        assertThat(testStudentPW.getAngleExterneD()).isEqualTo(DEFAULT_ANGLE_EXTERNE_D);
+        assertThat(testStudentPW.getAngledepouilleG()).isEqualTo(DEFAULT_ANGLEDEPOUILLE_G);
+        assertThat(testStudentPW.getAngledepouilleD()).isEqualTo(DEFAULT_ANGLEDEPOUILLE_D);
         assertThat(testStudentPW.getAngleConvergence()).isEqualTo(DEFAULT_ANGLE_CONVERGENCE);
     }
 
@@ -260,12 +260,12 @@ class StudentPWResourceIT {
             .andExpect(jsonPath("$.[*].imageSideContentType").value(hasItem(DEFAULT_IMAGE_SIDE_CONTENT_TYPE)))
             .andExpect(jsonPath("$.[*].imageSide").value(hasItem(Base64Utils.encodeToString(DEFAULT_IMAGE_SIDE))))
             .andExpect(jsonPath("$.[*].date").value(hasItem(DEFAULT_DATE.toString())))
-            .andExpect(jsonPath("$.[*].angleInterne1").value(hasItem(DEFAULT_ANGLE_INTERNE_1.doubleValue())))
-            .andExpect(jsonPath("$.[*].angleInterne2").value(hasItem(DEFAULT_ANGLE_INTERNE_2.doubleValue())))
-            .andExpect(jsonPath("$.[*].angleExterne1").value(hasItem(DEFAULT_ANGLE_EXTERNE_1.doubleValue())))
-            .andExpect(jsonPath("$.[*].angleExterne2").value(hasItem(DEFAULT_ANGLE_EXTERNE_2.doubleValue())))
-            .andExpect(jsonPath("$.[*].angledepouille1").value(hasItem(DEFAULT_ANGLEDEPOUILLE_1.doubleValue())))
-            .andExpect(jsonPath("$.[*].angledepouille2").value(hasItem(DEFAULT_ANGLEDEPOUILLE_2.doubleValue())))
+            .andExpect(jsonPath("$.[*].angleInterneG").value(hasItem(DEFAULT_ANGLE_INTERNE_G.doubleValue())))
+            .andExpect(jsonPath("$.[*].angleInterneD").value(hasItem(DEFAULT_ANGLE_INTERNE_D.doubleValue())))
+            .andExpect(jsonPath("$.[*].angleExterneG").value(hasItem(DEFAULT_ANGLE_EXTERNE_G.doubleValue())))
+            .andExpect(jsonPath("$.[*].angleExterneD").value(hasItem(DEFAULT_ANGLE_EXTERNE_D.doubleValue())))
+            .andExpect(jsonPath("$.[*].angledepouilleG").value(hasItem(DEFAULT_ANGLEDEPOUILLE_G.doubleValue())))
+            .andExpect(jsonPath("$.[*].angledepouilleD").value(hasItem(DEFAULT_ANGLEDEPOUILLE_D.doubleValue())))
             .andExpect(jsonPath("$.[*].angleConvergence").value(hasItem(DEFAULT_ANGLE_CONVERGENCE.doubleValue())));
     }
 
@@ -303,12 +303,12 @@ class StudentPWResourceIT {
             .andExpect(jsonPath("$.imageSideContentType").value(DEFAULT_IMAGE_SIDE_CONTENT_TYPE))
             .andExpect(jsonPath("$.imageSide").value(Base64Utils.encodeToString(DEFAULT_IMAGE_SIDE)))
             .andExpect(jsonPath("$.date").value(DEFAULT_DATE.toString()))
-            .andExpect(jsonPath("$.angleInterne1").value(DEFAULT_ANGLE_INTERNE_1.doubleValue()))
-            .andExpect(jsonPath("$.angleInterne2").value(DEFAULT_ANGLE_INTERNE_2.doubleValue()))
-            .andExpect(jsonPath("$.angleExterne1").value(DEFAULT_ANGLE_EXTERNE_1.doubleValue()))
-            .andExpect(jsonPath("$.angleExterne2").value(DEFAULT_ANGLE_EXTERNE_2.doubleValue()))
-            .andExpect(jsonPath("$.angledepouille1").value(DEFAULT_ANGLEDEPOUILLE_1.doubleValue()))
-            .andExpect(jsonPath("$.angledepouille2").value(DEFAULT_ANGLEDEPOUILLE_2.doubleValue()))
+            .andExpect(jsonPath("$.angleInterneG").value(DEFAULT_ANGLE_INTERNE_G.doubleValue()))
+            .andExpect(jsonPath("$.angleInterneD").value(DEFAULT_ANGLE_INTERNE_D.doubleValue()))
+            .andExpect(jsonPath("$.angleExterneG").value(DEFAULT_ANGLE_EXTERNE_G.doubleValue()))
+            .andExpect(jsonPath("$.angleExterneD").value(DEFAULT_ANGLE_EXTERNE_D.doubleValue()))
+            .andExpect(jsonPath("$.angledepouilleG").value(DEFAULT_ANGLEDEPOUILLE_G.doubleValue()))
+            .andExpect(jsonPath("$.angledepouilleD").value(DEFAULT_ANGLEDEPOUILLE_D.doubleValue()))
             .andExpect(jsonPath("$.angleConvergence").value(DEFAULT_ANGLE_CONVERGENCE.doubleValue()));
     }
 
@@ -337,12 +337,12 @@ class StudentPWResourceIT {
             .imageSide(UPDATED_IMAGE_SIDE)
             .imageSideContentType(UPDATED_IMAGE_SIDE_CONTENT_TYPE)
             .date(UPDATED_DATE)
-            .angleInterne1(UPDATED_ANGLE_INTERNE_1)
-            .angleInterne2(UPDATED_ANGLE_INTERNE_2)
-            .angleExterne1(UPDATED_ANGLE_EXTERNE_1)
-            .angleExterne2(UPDATED_ANGLE_EXTERNE_2)
-            .angledepouille1(UPDATED_ANGLEDEPOUILLE_1)
-            .angledepouille2(UPDATED_ANGLEDEPOUILLE_2)
+            .angleInterneG(UPDATED_ANGLE_INTERNE_G)
+            .angleInterneD(UPDATED_ANGLE_INTERNE_D)
+            .angleExterneG(UPDATED_ANGLE_EXTERNE_G)
+            .angleExterneD(UPDATED_ANGLE_EXTERNE_D)
+            .angledepouilleG(UPDATED_ANGLEDEPOUILLE_G)
+            .angledepouilleD(UPDATED_ANGLEDEPOUILLE_D)
             .angleConvergence(UPDATED_ANGLE_CONVERGENCE);
 
         restStudentPWMockMvc
@@ -363,12 +363,12 @@ class StudentPWResourceIT {
         assertThat(testStudentPW.getImageSide()).isEqualTo(UPDATED_IMAGE_SIDE);
         assertThat(testStudentPW.getImageSideContentType()).isEqualTo(UPDATED_IMAGE_SIDE_CONTENT_TYPE);
         assertThat(testStudentPW.getDate()).isEqualTo(UPDATED_DATE);
-        assertThat(testStudentPW.getAngleInterne1()).isEqualTo(UPDATED_ANGLE_INTERNE_1);
-        assertThat(testStudentPW.getAngleInterne2()).isEqualTo(UPDATED_ANGLE_INTERNE_2);
-        assertThat(testStudentPW.getAngleExterne1()).isEqualTo(UPDATED_ANGLE_EXTERNE_1);
-        assertThat(testStudentPW.getAngleExterne2()).isEqualTo(UPDATED_ANGLE_EXTERNE_2);
-        assertThat(testStudentPW.getAngledepouille1()).isEqualTo(UPDATED_ANGLEDEPOUILLE_1);
-        assertThat(testStudentPW.getAngledepouille2()).isEqualTo(UPDATED_ANGLEDEPOUILLE_2);
+        assertThat(testStudentPW.getAngleInterneG()).isEqualTo(UPDATED_ANGLE_INTERNE_G);
+        assertThat(testStudentPW.getAngleInterneD()).isEqualTo(UPDATED_ANGLE_INTERNE_D);
+        assertThat(testStudentPW.getAngleExterneG()).isEqualTo(UPDATED_ANGLE_EXTERNE_G);
+        assertThat(testStudentPW.getAngleExterneD()).isEqualTo(UPDATED_ANGLE_EXTERNE_D);
+        assertThat(testStudentPW.getAngledepouilleG()).isEqualTo(UPDATED_ANGLEDEPOUILLE_G);
+        assertThat(testStudentPW.getAngledepouilleD()).isEqualTo(UPDATED_ANGLEDEPOUILLE_D);
         assertThat(testStudentPW.getAngleConvergence()).isEqualTo(UPDATED_ANGLE_CONVERGENCE);
     }
 
@@ -450,11 +450,11 @@ class StudentPWResourceIT {
         partialUpdatedStudentPW
             .imageSide(UPDATED_IMAGE_SIDE)
             .imageSideContentType(UPDATED_IMAGE_SIDE_CONTENT_TYPE)
-            .angleInterne1(UPDATED_ANGLE_INTERNE_1)
-            .angleInterne2(UPDATED_ANGLE_INTERNE_2)
-            .angleExterne1(UPDATED_ANGLE_EXTERNE_1)
-            .angleExterne2(UPDATED_ANGLE_EXTERNE_2)
-            .angledepouille1(UPDATED_ANGLEDEPOUILLE_1)
+            .angleInterneG(UPDATED_ANGLE_INTERNE_G)
+            .angleInterneD(UPDATED_ANGLE_INTERNE_D)
+            .angleExterneG(UPDATED_ANGLE_EXTERNE_G)
+            .angleExterneD(UPDATED_ANGLE_EXTERNE_D)
+            .angledepouilleG(UPDATED_ANGLEDEPOUILLE_G)
             .angleConvergence(UPDATED_ANGLE_CONVERGENCE);
 
         restStudentPWMockMvc
@@ -475,12 +475,12 @@ class StudentPWResourceIT {
         assertThat(testStudentPW.getImageSide()).isEqualTo(UPDATED_IMAGE_SIDE);
         assertThat(testStudentPW.getImageSideContentType()).isEqualTo(UPDATED_IMAGE_SIDE_CONTENT_TYPE);
         assertThat(testStudentPW.getDate()).isEqualTo(DEFAULT_DATE);
-        assertThat(testStudentPW.getAngleInterne1()).isEqualTo(UPDATED_ANGLE_INTERNE_1);
-        assertThat(testStudentPW.getAngleInterne2()).isEqualTo(UPDATED_ANGLE_INTERNE_2);
-        assertThat(testStudentPW.getAngleExterne1()).isEqualTo(UPDATED_ANGLE_EXTERNE_1);
-        assertThat(testStudentPW.getAngleExterne2()).isEqualTo(UPDATED_ANGLE_EXTERNE_2);
-        assertThat(testStudentPW.getAngledepouille1()).isEqualTo(UPDATED_ANGLEDEPOUILLE_1);
-        assertThat(testStudentPW.getAngledepouille2()).isEqualTo(DEFAULT_ANGLEDEPOUILLE_2);
+        assertThat(testStudentPW.getAngleInterneG()).isEqualTo(UPDATED_ANGLE_INTERNE_G);
+        assertThat(testStudentPW.getAngleInterneD()).isEqualTo(UPDATED_ANGLE_INTERNE_D);
+        assertThat(testStudentPW.getAngleExterneG()).isEqualTo(UPDATED_ANGLE_EXTERNE_G);
+        assertThat(testStudentPW.getAngleExterneD()).isEqualTo(UPDATED_ANGLE_EXTERNE_D);
+        assertThat(testStudentPW.getAngledepouilleG()).isEqualTo(UPDATED_ANGLEDEPOUILLE_G);
+        assertThat(testStudentPW.getAngledepouilleD()).isEqualTo(DEFAULT_ANGLEDEPOUILLE_D);
         assertThat(testStudentPW.getAngleConvergence()).isEqualTo(UPDATED_ANGLE_CONVERGENCE);
     }
 
@@ -502,12 +502,12 @@ class StudentPWResourceIT {
             .imageSide(UPDATED_IMAGE_SIDE)
             .imageSideContentType(UPDATED_IMAGE_SIDE_CONTENT_TYPE)
             .date(UPDATED_DATE)
-            .angleInterne1(UPDATED_ANGLE_INTERNE_1)
-            .angleInterne2(UPDATED_ANGLE_INTERNE_2)
-            .angleExterne1(UPDATED_ANGLE_EXTERNE_1)
-            .angleExterne2(UPDATED_ANGLE_EXTERNE_2)
-            .angledepouille1(UPDATED_ANGLEDEPOUILLE_1)
-            .angledepouille2(UPDATED_ANGLEDEPOUILLE_2)
+            .angleInterneG(UPDATED_ANGLE_INTERNE_G)
+            .angleInterneD(UPDATED_ANGLE_INTERNE_D)
+            .angleExterneG(UPDATED_ANGLE_EXTERNE_G)
+            .angleExterneD(UPDATED_ANGLE_EXTERNE_D)
+            .angledepouilleG(UPDATED_ANGLEDEPOUILLE_G)
+            .angledepouilleD(UPDATED_ANGLEDEPOUILLE_D)
             .angleConvergence(UPDATED_ANGLE_CONVERGENCE);
 
         restStudentPWMockMvc
@@ -528,12 +528,12 @@ class StudentPWResourceIT {
         assertThat(testStudentPW.getImageSide()).isEqualTo(UPDATED_IMAGE_SIDE);
         assertThat(testStudentPW.getImageSideContentType()).isEqualTo(UPDATED_IMAGE_SIDE_CONTENT_TYPE);
         assertThat(testStudentPW.getDate()).isEqualTo(UPDATED_DATE);
-        assertThat(testStudentPW.getAngleInterne1()).isEqualTo(UPDATED_ANGLE_INTERNE_1);
-        assertThat(testStudentPW.getAngleInterne2()).isEqualTo(UPDATED_ANGLE_INTERNE_2);
-        assertThat(testStudentPW.getAngleExterne1()).isEqualTo(UPDATED_ANGLE_EXTERNE_1);
-        assertThat(testStudentPW.getAngleExterne2()).isEqualTo(UPDATED_ANGLE_EXTERNE_2);
-        assertThat(testStudentPW.getAngledepouille1()).isEqualTo(UPDATED_ANGLEDEPOUILLE_1);
-        assertThat(testStudentPW.getAngledepouille2()).isEqualTo(UPDATED_ANGLEDEPOUILLE_2);
+        assertThat(testStudentPW.getAngleInterneG()).isEqualTo(UPDATED_ANGLE_INTERNE_G);
+        assertThat(testStudentPW.getAngleInterneD()).isEqualTo(UPDATED_ANGLE_INTERNE_D);
+        assertThat(testStudentPW.getAngleExterneG()).isEqualTo(UPDATED_ANGLE_EXTERNE_G);
+        assertThat(testStudentPW.getAngleExterneD()).isEqualTo(UPDATED_ANGLE_EXTERNE_D);
+        assertThat(testStudentPW.getAngledepouilleG()).isEqualTo(UPDATED_ANGLEDEPOUILLE_G);
+        assertThat(testStudentPW.getAngledepouilleD()).isEqualTo(UPDATED_ANGLEDEPOUILLE_D);
         assertThat(testStudentPW.getAngleConvergence()).isEqualTo(UPDATED_ANGLE_CONVERGENCE);
     }
 

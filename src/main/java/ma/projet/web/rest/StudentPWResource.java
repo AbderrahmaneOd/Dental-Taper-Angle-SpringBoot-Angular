@@ -140,23 +140,23 @@ public class StudentPWResource {
                 if (studentPW.getDate() != null) {
                     existingStudentPW.setDate(studentPW.getDate());
                 }
-                if (studentPW.getAngleInterne1() != null) {
-                    existingStudentPW.setAngleInterne1(studentPW.getAngleInterne1());
+                if (studentPW.getAngleInterneG() != null) {
+                    existingStudentPW.setAngleInterneG(studentPW.getAngleInterneG());
                 }
-                if (studentPW.getAngleInterne2() != null) {
-                    existingStudentPW.setAngleInterne2(studentPW.getAngleInterne2());
+                if (studentPW.getAngleInterneD() != null) {
+                    existingStudentPW.setAngleInterneD(studentPW.getAngleInterneD());
                 }
-                if (studentPW.getAngleExterne1() != null) {
-                    existingStudentPW.setAngleExterne1(studentPW.getAngleExterne1());
+                if (studentPW.getAngleExterneG() != null) {
+                    existingStudentPW.setAngleExterneG(studentPW.getAngleExterneG());
                 }
-                if (studentPW.getAngleExterne2() != null) {
-                    existingStudentPW.setAngleExterne2(studentPW.getAngleExterne2());
+                if (studentPW.getAngleExterneD() != null) {
+                    existingStudentPW.setAngleExterneD(studentPW.getAngleExterneD());
                 }
-                if (studentPW.getAngledepouille1() != null) {
-                    existingStudentPW.setAngledepouille1(studentPW.getAngledepouille1());
+                if (studentPW.getAngledepouilleG() != null) {
+                    existingStudentPW.setAngledepouilleG(studentPW.getAngledepouilleG());
                 }
-                if (studentPW.getAngledepouille2() != null) {
-                    existingStudentPW.setAngledepouille2(studentPW.getAngledepouille2());
+                if (studentPW.getAngledepouilleD() != null) {
+                    existingStudentPW.setAngledepouilleD(studentPW.getAngledepouilleD());
                 }
                 if (studentPW.getAngleConvergence() != null) {
                     existingStudentPW.setAngleConvergence(studentPW.getAngleConvergence());
@@ -215,5 +215,17 @@ public class StudentPWResource {
             .noContent()
             .headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, id.toString()))
             .build();
+    }
+
+    /**
+     * {@code GET  /student-pws/student/:id} : get the "id" studentPW.
+     *
+     * @param id the id of the student to retrieve it associated PW.
+     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the studentPW, or with status {@code 404 (Not Found)}.
+     */
+    @GetMapping("/student/{id}")
+    public List<StudentPW> getPWsByStudentID(@PathVariable Long id) {
+        log.debug("REST request to get StudentPW : {}", id);
+        return studentPWRepository.findStudentPWSByStudentId(id);
     }
 }

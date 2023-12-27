@@ -37,4 +37,7 @@ public interface StudentRepository extends JpaRepository<Student, Long> {
 
     @Query("select student from Student student left join fetch student.user left join fetch student.groupe where student.id =:id")
     Optional<Student> findOneWithToOneRelationships(@Param("id") Long id);
+
+    @Query("select student from Student student where student.id =:id")
+    Student getStudentsById(@Param("id") Long id);
 }

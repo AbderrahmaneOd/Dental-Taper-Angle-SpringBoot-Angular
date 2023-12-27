@@ -22,12 +22,12 @@ entity StudentPW {
     imageFront ImageBlob
     imageSide ImageBlob
     date LocalDate
-    angleInterne1 Double
-    angleInterne2 Double
-    angleExterne1 Double
-    angleExterne2 Double
-    angledepouille1 Double
-    angledepouille2 Double
+    angleInterneG Double
+    angleInterneD Double
+    angleExterneG Double
+    angleExterneD Double
+    angledepouilleG Double
+    angledepouilleD Double
     angleConvergence Double
 }
 relationship ManyToOne {

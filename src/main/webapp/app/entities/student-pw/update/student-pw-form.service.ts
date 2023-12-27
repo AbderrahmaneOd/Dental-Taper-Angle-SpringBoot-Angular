@@ -23,12 +23,12 @@ type StudentPWFormGroupContent = {
   imageSide: FormControl<IStudentPW['imageSide']>;
   imageSideContentType: FormControl<IStudentPW['imageSideContentType']>;
   date: FormControl<IStudentPW['date']>;
-  angleInterne1: FormControl<IStudentPW['angleInterne1']>;
-  angleInterne2: FormControl<IStudentPW['angleInterne2']>;
-  angleExterne1: FormControl<IStudentPW['angleExterne1']>;
-  angleExterne2: FormControl<IStudentPW['angleExterne2']>;
-  angledepouille1: FormControl<IStudentPW['angledepouille1']>;
-  angledepouille2: FormControl<IStudentPW['angledepouille2']>;
+  angleInterneG: FormControl<IStudentPW['angleInterneG']>;
+  angleInterneD: FormControl<IStudentPW['angleInterneD']>;
+  angleExterneG: FormControl<IStudentPW['angleExterneG']>;
+  angleExterneD: FormControl<IStudentPW['angleExterneD']>;
+  angledepouilleG: FormControl<IStudentPW['angledepouilleG']>;
+  angledepouilleD: FormControl<IStudentPW['angledepouilleD']>;
   angleConvergence: FormControl<IStudentPW['angleConvergence']>;
   student: FormControl<IStudentPW['student']>;
   pw: FormControl<IStudentPW['pw']>;
@@ -56,12 +56,12 @@ export class StudentPWFormService {
       imageSide: new FormControl(studentPWRawValue.imageSide),
       imageSideContentType: new FormControl(studentPWRawValue.imageSideContentType),
       date: new FormControl(studentPWRawValue.date),
-      angleInterne1: new FormControl(studentPWRawValue.angleInterne1),
-      angleInterne2: new FormControl(studentPWRawValue.angleInterne2),
-      angleExterne1: new FormControl(studentPWRawValue.angleExterne1),
-      angleExterne2: new FormControl(studentPWRawValue.angleExterne2),
-      angledepouille1: new FormControl(studentPWRawValue.angledepouille1),
-      angledepouille2: new FormControl(studentPWRawValue.angledepouille2),
+      angleInterneG: new FormControl(studentPWRawValue.angleInterneG),
+      angleInterneD: new FormControl(studentPWRawValue.angleInterneD),
+      angleExterneG: new FormControl(studentPWRawValue.angleExterneG),
+      angleExterneD: new FormControl(studentPWRawValue.angleExterneD),
+      angledepouilleG: new FormControl(studentPWRawValue.angledepouilleG),
+      angledepouilleD: new FormControl(studentPWRawValue.angledepouilleD),
       angleConvergence: new FormControl(studentPWRawValue.angleConvergence),
       student: new FormControl(studentPWRawValue.student, {
         validators: [Validators.required],

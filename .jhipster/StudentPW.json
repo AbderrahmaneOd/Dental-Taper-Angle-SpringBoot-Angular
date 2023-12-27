@@ -18,27 +18,27 @@
       "fieldType": "LocalDate"
     },
     {
-      "fieldName": "angleInterne1",
+      "fieldName": "angleInterneG",
       "fieldType": "Double"
     },
     {
-      "fieldName": "angleInterne2",
+      "fieldName": "angleInterneD",
       "fieldType": "Double"
     },
     {
-      "fieldName": "angleExterne1",
+      "fieldName": "angleExterneG",
       "fieldType": "Double"
     },
     {
-      "fieldName": "angleExterne2",
+      "fieldName": "angleExterneD",
       "fieldType": "Double"
     },
     {
-      "fieldName": "angledepouille1",
+      "fieldName": "angledepouilleG",
       "fieldType": "Double"
     },
     {
-      "fieldName": "angledepouille2",
+      "fieldName": "angledepouilleD",
       "fieldType": "Double"
     },
     {

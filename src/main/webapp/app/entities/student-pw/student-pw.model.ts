@@ -9,12 +9,12 @@ export interface IStudentPW {
   imageSide?: string | null;
   imageSideContentType?: string | null;
   date?: dayjs.Dayjs | null;
-  angleInterne1?: number | null;
-  angleInterne2?: number | null;
-  angleExterne1?: number | null;
-  angleExterne2?: number | null;
-  angledepouille1?: number | null;
-  angledepouille2?: number | null;
+  angleInterneG?: number | null;
+  angleInterneD?: number | null;
+  angleExterneG?: number | null;
+  angleExterneD?: number | null;
+  angledepouilleG?: number | null;
+  angledepouilleD?: number | null;
   angleConvergence?: number | null;
   student?: Pick<IStudent, 'id'> | null;
   pw?: Pick<IPW, 'id' | 'title'> | null;

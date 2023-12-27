@@ -56,39 +56,39 @@
               <fa-icon class="p-1" icon="sort"></fa-icon>
             </div>
           </th>
-          <th scope="col" jhiSortBy="angleInterne1">
+          <th scope="col" jhiSortBy="angleInterneG">
             <div class="d-flex">
-              <span jhiTranslate="profEtudiantApp.studentPW.angleInterne1">Angle Interne 1</span>
+              <span jhiTranslate="profEtudiantApp.studentPW.angleInterneG">Angle Interne G</span>
               <fa-icon class="p-1" icon="sort"></fa-icon>
             </div>
           </th>
-          <th scope="col" jhiSortBy="angleInterne2">
+          <th scope="col" jhiSortBy="angleInterneD">
             <div class="d-flex">
-              <span jhiTranslate="profEtudiantApp.studentPW.angleInterne2">Angle Interne 2</span>
+              <span jhiTranslate="profEtudiantApp.studentPW.angleInterneD">Angle Interne D</span>
               <fa-icon class="p-1" icon="sort"></fa-icon>
             </div>
           </th>
-          <th scope="col" jhiSortBy="angleExterne1">
+          <th scope="col" jhiSortBy="angleExterneG">
             <div class="d-flex">
-              <span jhiTranslate="profEtudiantApp.studentPW.angleExterne1">Angle Externe 1</span>
+              <span jhiTranslate="profEtudiantApp.studentPW.angleExterneG">Angle Externe G</span>
               <fa-icon class="p-1" icon="sort"></fa-icon>
             </div>
           </th>
-          <th scope="col" jhiSortBy="angleExterne2">
+          <th scope="col" jhiSortBy="angleExterneD">
             <div class="d-flex">
-              <span jhiTranslate="profEtudiantApp.studentPW.angleExterne2">Angle Externe 2</span>
+              <span jhiTranslate="profEtudiantApp.studentPW.angleExterneD">Angle Externe D</span>
               <fa-icon class="p-1" icon="sort"></fa-icon>
             </div>
           </th>
-          <th scope="col" jhiSortBy="angledepouille1">
+          <th scope="col" jhiSortBy="angledepouilleG">
             <div class="d-flex">
-              <span jhiTranslate="profEtudiantApp.studentPW.angledepouille1">Angledepouille 1</span>
+              <span jhiTranslate="profEtudiantApp.studentPW.angledepouilleG">Angledepouille G</span>
               <fa-icon class="p-1" icon="sort"></fa-icon>
             </div>
           </th>
-          <th scope="col" jhiSortBy="angledepouille2">
+          <th scope="col" jhiSortBy="angledepouilleD">
             <div class="d-flex">
-              <span jhiTranslate="profEtudiantApp.studentPW.angledepouille2">Angledepouille 2</span>
+              <span jhiTranslate="profEtudiantApp.studentPW.angledepouilleD">Angledepouille D</span>
               <fa-icon class="p-1" icon="sort"></fa-icon>
             </div>
           </th>
@@ -139,12 +139,12 @@
             <span *ngIf="studentPW.imageSide">{{ studentPW.imageSideContentType }}, {{ byteSize(studentPW.imageSide) }}</span>
           </td>
           <td>{{ studentPW.date | formatMediumDate }}</td>
-          <td>{{ studentPW.angleInterne1 }}</td>
-          <td>{{ studentPW.angleInterne2 }}</td>
-          <td>{{ studentPW.angleExterne1 }}</td>
-          <td>{{ studentPW.angleExterne2 }}</td>
-          <td>{{ studentPW.angledepouille1 }}</td>
-          <td>{{ studentPW.angledepouille2 }}</td>
+          <td>{{ studentPW.angleInterneG }}</td>
+          <td>{{ studentPW.angleInterneD }}</td>
+          <td>{{ studentPW.angleExterneG }}</td>
+          <td>{{ studentPW.angleExterneD }}</td>
+          <td>{{ studentPW.angledepouilleG }}</td>
+          <td>{{ studentPW.angledepouilleD }}</td>
           <td>{{ studentPW.angleConvergence }}</td>
           <td>
             <div *ngIf="studentPW.student">
