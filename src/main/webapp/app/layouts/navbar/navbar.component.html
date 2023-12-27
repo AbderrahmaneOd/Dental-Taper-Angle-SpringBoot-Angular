@@ -1,5 +1,4 @@
-<nav data-cy="navbar" class="navbar navbar-light navbar-expand-md"
-     style="background-color: #EBF3E8;">
+<nav data-cy="navbar" class="navbar navbar-light navbar-expand-md" style="background-color: #ebf3e8">
   <div class="container-fluid">
     <a class="navbar-brand logo" routerLink="/" (click)="collapseNavbar()">
       <span class="logo-img"></span>
@@ -19,8 +18,7 @@
       <fa-icon icon="bars"></fa-icon>
     </a>
 
-    <div class="navbar-collapse collapse" id="navbarResponsive" [ngbCollapse]="isNavbarCollapsed"
-         [ngSwitch]="account !== null">
+    <div class="navbar-collapse collapse" id="navbarResponsive" [ngbCollapse]="isNavbarCollapsed" [ngSwitch]="account !== null">
       <ul class="navbar-nav ms-auto">
         <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
           <a class="nav-link" routerLink="/" (click)="collapseNavbar()">
@@ -39,8 +37,7 @@
           routerLinkActive="active"
           [routerLinkActiveOptions]="{ exact: true }"
         >
-          <a class="nav-link dropdown-toggle" ngbDropdownToggle href="javascript:void(0);" id="entity-menu"
-             data-cy="entity">
+          <a class="nav-link dropdown-toggle" ngbDropdownToggle href="javascript:void(0);" id="entity-menu" data-cy="entity">
             <span>
               <fa-icon icon="th-list"></fa-icon>
               <span jhiTranslate="global.menu.entities.main">Entités</span>
@@ -75,6 +72,7 @@
             </li>
             <li>
               <a
+                *jhiHasAnyAuthority="'ROLE_PROFESSOR'"
                 class="dropdown-item"
                 routerLink="/groupe"
                 routerLinkActive="active"
@@ -87,6 +85,7 @@
             </li>
             <li>
               <a
+                *jhiHasAnyAuthority="'ROLE_PROFESSOR'"
                 class="dropdown-item"
                 routerLink="/tooth"
                 routerLinkActive="active"
@@ -99,6 +98,7 @@
             </li>
             <li>
               <a
+                *jhiHasAnyAuthority="'ROLE_PROFESSOR'"
                 class="dropdown-item"
                 routerLink="/pw"
                 routerLinkActive="active"
@@ -111,6 +111,7 @@
             </li>
             <li>
               <a
+                *jhiHasAnyAuthority="'ROLE_PROFESSOR'"
                 class="dropdown-item"
                 routerLink="/student-pw"
                 routerLinkActive="active"
@@ -132,8 +133,7 @@
           routerLinkActive="active"
           [routerLinkActiveOptions]="{ exact: true }"
         >
-          <a class="nav-link dropdown-toggle" ngbDropdownToggle href="javascript:void(0);" id="admin-menu"
-             data-cy="adminMenu">
+          <a class="nav-link dropdown-toggle" ngbDropdownToggle href="javascript:void(0);" id="admin-menu" data-cy="adminMenu">
             <span>
               <fa-icon icon="users-cog"></fa-icon>
               <span jhiTranslate="global.menu.admin.main">Administration</span>
@@ -141,8 +141,7 @@
           </a>
           <ul class="dropdown-menu" ngbDropdownMenu aria-labelledby="admin-menu">
             <li>
-              <a class="dropdown-item" routerLink="/admin/user-management" routerLinkActive="active"
-                 (click)="collapseNavbar()">
+              <a class="dropdown-item" routerLink="/admin/user-management" routerLinkActive="active" (click)="collapseNavbar()">
                 <fa-icon icon="users" [fixedWidth]="true"></fa-icon>
                 <span jhiTranslate="global.menu.admin.userManagement">Gestion des utilisateurs</span>
               </a>
@@ -160,8 +159,7 @@
               </a>
             </li>
             <li>
-              <a class="dropdown-item" routerLink="/admin/configuration" routerLinkActive="active"
-                 (click)="collapseNavbar()">
+              <a class="dropdown-item" routerLink="/admin/configuration" routerLinkActive="active" (click)="collapseNavbar()">
                 <fa-icon icon="cogs" [fixedWidth]="true"></fa-icon>
                 <span jhiTranslate="global.menu.admin.configuration">Configuration</span>
               </a>
@@ -195,7 +193,7 @@
                 [jhiActiveMenu]="language"
                 href="javascript:void(0);"
                 (click)="changeLanguage(language); collapseNavbar()"
-              >{{ language | findLanguageFromKey }}</a
+                >{{ language | findLanguageFromKey }}</a
               >
             </li>
           </ul>
@@ -207,14 +205,13 @@
           routerLinkActive="active"
           [routerLinkActiveOptions]="{ exact: true }"
         >
-          <a class="nav-link dropdown-toggle" ngbDropdownToggle href="javascript:void(0);" id="account-menu"
-             data-cy="accountMenu">
+          <a class="nav-link dropdown-toggle" ngbDropdownToggle href="javascript:void(0);" id="account-menu" data-cy="accountMenu">
             <span *ngIf="!account?.imageUrl">
               <fa-icon icon="user"></fa-icon>
               <span jhiTranslate="global.menu.account.main">Compte</span>
             </span>
             <span *ngIf="account?.imageUrl">
-              <img [src]="account!.imageUrl" class="profile-image rounded-circle" alt="Avatar"/>
+              <img [src]="account!.imageUrl" class="profile-image rounded-circle" alt="Avatar" />
             </span>
           </a>
           <ul class="dropdown-menu" ngbDropdownMenu aria-labelledby="account-menu">
@@ -243,8 +240,7 @@
               </a>
             </li>
             <li *ngSwitchCase="true">
-              <a class="dropdown-item" routerLink="/account/sessions" routerLinkActive="active"
-                 (click)="collapseNavbar()">
+              <a class="dropdown-item" routerLink="/account/sessions" routerLinkActive="active" (click)="collapseNavbar()">
                 <fa-icon icon="cloud" [fixedWidth]="true"></fa-icon>
                 <span jhiTranslate="global.menu.account.sessions">Sessions</span>
               </a>
