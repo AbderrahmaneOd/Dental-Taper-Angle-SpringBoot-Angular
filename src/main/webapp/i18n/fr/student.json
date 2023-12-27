@@ -18,10 +18,9 @@
         "title": "Student"
       },
       "id": "ID",
-      "number": "Number",
-      "cne": "Cne",
-      "cin": "Cin",
-      "birthDay": "Birth Day",
+      "cNE": "C NE",
+      "cIN": "C IN",
+      "dateNaissance": "Date Naissance",
       "user": "User",
       "groupe": "Groupe"
     }

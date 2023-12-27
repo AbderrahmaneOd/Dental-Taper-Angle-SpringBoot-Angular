@@ -20,10 +20,9 @@ describe('Student Form Service', () => {
         expect(formGroup.controls).toEqual(
           expect.objectContaining({
             id: expect.any(Object),
-            number: expect.any(Object),
-            cne: expect.any(Object),
-            cin: expect.any(Object),
-            birthDay: expect.any(Object),
+            cNE: expect.any(Object),
+            cIN: expect.any(Object),
+            dateNaissance: expect.any(Object),
             user: expect.any(Object),
             groupe: expect.any(Object),
           }),
@@ -36,10 +35,9 @@ describe('Student Form Service', () => {
         expect(formGroup.controls).toEqual(
           expect.objectContaining({
             id: expect.any(Object),
-            number: expect.any(Object),
-            cne: expect.any(Object),
-            cin: expect.any(Object),
-            birthDay: expect.any(Object),
+            cNE: expect.any(Object),
+            cIN: expect.any(Object),
+            dateNaissance: expect.any(Object),
             user: expect.any(Object),
             groupe: expect.any(Object),
           }),

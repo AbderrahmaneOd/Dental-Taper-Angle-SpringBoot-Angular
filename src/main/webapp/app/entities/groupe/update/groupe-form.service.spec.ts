@@ -21,7 +21,7 @@ describe('Groupe Form Service', () => {
           expect.objectContaining({
             id: expect.any(Object),
             code: expect.any(Object),
-            year: expect.any(Object),
+            annee: expect.any(Object),
             professor: expect.any(Object),
             pws: expect.any(Object),
           }),
@@ -35,7 +35,7 @@ describe('Groupe Form Service', () => {
           expect.objectContaining({
             id: expect.any(Object),
             code: expect.any(Object),
-            year: expect.any(Object),
+            annee: expect.any(Object),
             professor: expect.any(Object),
             pws: expect.any(Object),
           }),

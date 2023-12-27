@@ -128,8 +128,8 @@ public class GroupeResource {
                 if (groupe.getCode() != null) {
                     existingGroupe.setCode(groupe.getCode());
                 }
-                if (groupe.getYear() != null) {
-                    existingGroupe.setYear(groupe.getYear());
+                if (groupe.getAnnee() != null) {
+                    existingGroupe.setAnnee(groupe.getAnnee());
                 }
 
                 return existingGroupe;

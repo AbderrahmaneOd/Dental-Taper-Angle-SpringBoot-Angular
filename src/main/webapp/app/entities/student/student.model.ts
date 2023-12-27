@@ -4,10 +4,9 @@ import { IGroupe } from 'app/entities/groupe/groupe.model';
 
 export interface IStudent {
   id: number;
-  number?: string | null;
-  cne?: string | null;
-  cin?: string | null;
-  birthDay?: dayjs.Dayjs | null;
+  cNE?: string | null;
+  cIN?: string | null;
+  dateNaissance?: dayjs.Dayjs | null;
   user?: Pick<IUser, 'id' | 'login'> | null;
   groupe?: Pick<IGroupe, 'id' | 'code'> | null;
 }

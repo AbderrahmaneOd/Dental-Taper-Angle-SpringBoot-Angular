@@ -2,14 +2,13 @@ entity Professor {
     grade String
 }
 entity Student {
-    number String required
-    cne String required
-    cin String required
-    birthDay LocalDate required
+    CNE String required
+    CIN String required
+    dateNaissance LocalDate required
 }
 entity Groupe {
     code String
-    year String
+    annee String
 }
 entity Tooth {
     name String
@@ -23,9 +22,13 @@ entity StudentPW {
     imageFront ImageBlob
     imageSide ImageBlob
     date LocalDate
-    mesureAngle1 String
-    mesureAngle2 String
-    intersection String
+    angleInterne1 Double
+    angleInterne2 Double
+    angleExterne1 Double
+    angleExterne2 Double
+    angledepouille1 Double
+    angledepouille2 Double
+    angleConvergence Double
 }
 relationship ManyToOne {
     Groupe{professor required} to Professor{groupe(code)}

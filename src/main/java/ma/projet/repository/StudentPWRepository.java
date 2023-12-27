@@ -37,7 +37,4 @@ public interface StudentPWRepository extends JpaRepository<StudentPW, Long> {
 
     @Query("select studentPW from StudentPW studentPW left join fetch studentPW.pw where studentPW.id =:id")
     Optional<StudentPW> findOneWithToOneRelationships(@Param("id") Long id);
-
-    @Query("select studentPW from StudentPW studentPW where studentPW.student.id =:id")
-    List<StudentPW> findStudentPWSByStudentId(@Param("id") Long id);
 }

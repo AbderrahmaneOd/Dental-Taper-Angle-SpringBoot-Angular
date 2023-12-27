@@ -21,9 +21,6 @@ public class StudentPW implements Serializable {
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "time")
-    private String time;
-
     @Lob
     @Column(name = "image_front")
     private byte[] imageFront;
@@ -41,14 +38,26 @@ public class StudentPW implements Serializable {
     @Column(name = "date")
     private LocalDate date;
 
-    @Column(name = "mesure_angle_1")
-    private String mesureAngle1;
+    @Column(name = "angle_interne_1")
+    private Double angleInterne1;
 
-    @Column(name = "mesure_angle_2")
-    private String mesureAngle2;
+    @Column(name = "angle_interne_2")
+    private Double angleInterne2;
 
-    @Column(name = "intersection")
-    private String intersection;
+    @Column(name = "angle_externe_1")
+    private Double angleExterne1;
+
+    @Column(name = "angle_externe_2")
+    private Double angleExterne2;
+
+    @Column(name = "angledepouille_1")
+    private Double angledepouille1;
+
+    @Column(name = "angledepouille_2")
+    private Double angledepouille2;
+
+    @Column(name = "angle_convergence")
+    private Double angleConvergence;
 
     @ManyToOne(optional = false)
     @NotNull
@@ -73,19 +82,6 @@ public class StudentPW implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public String getTime() {
-        return this.time;
-    }
-
-    public StudentPW time(String time) {
-        this.setTime(time);
-        return this;
-    }
-
-    public void setTime(String time) {
-        this.time = time;
     }
 
     public byte[] getImageFront() {
@@ -153,43 +149,95 @@ public class StudentPW implements Serializable {
         this.date = date;
     }
 
-    public String getMesureAngle1() {
-        return this.mesureAngle1;
+    public Double getAngleInterne1() {
+        return this.angleInterne1;
     }
 
-    public StudentPW mesureAngle1(String mesureAngle1) {
-        this.setMesureAngle1(mesureAngle1);
+    public StudentPW angleInterne1(Double angleInterne1) {
+        this.setAngleInterne1(angleInterne1);
         return this;
     }
 
-    public void setMesureAngle1(String mesureAngle1) {
-        this.mesureAngle1 = mesureAngle1;
+    public void setAngleInterne1(Double angleInterne1) {
+        this.angleInterne1 = angleInterne1;
     }
 
-    public String getMesureAngle2() {
-        return this.mesureAngle2;
+    public Double getAngleInterne2() {
+        return this.angleInterne2;
     }
 
-    public StudentPW mesureAngle2(String mesureAngle2) {
-        this.setMesureAngle2(mesureAngle2);
+    public StudentPW angleInterne2(Double angleInterne2) {
+        this.setAngleInterne2(angleInterne2);
         return this;
     }
 
-    public void setMesureAngle2(String mesureAngle2) {
-        this.mesureAngle2 = mesureAngle2;
+    public void setAngleInterne2(Double angleInterne2) {
+        this.angleInterne2 = angleInterne2;
     }
 
-    public String getIntersection() {
-        return this.intersection;
+    public Double getAngleExterne1() {
+        return this.angleExterne1;
     }
 
-    public StudentPW intersection(String intersection) {
-        this.setIntersection(intersection);
+    public StudentPW angleExterne1(Double angleExterne1) {
+        this.setAngleExterne1(angleExterne1);
         return this;
     }
 
-    public void setIntersection(String intersection) {
-        this.intersection = intersection;
+    public void setAngleExterne1(Double angleExterne1) {
+        this.angleExterne1 = angleExterne1;
+    }
+
+    public Double getAngleExterne2() {
+        return this.angleExterne2;
+    }
+
+    public StudentPW angleExterne2(Double angleExterne2) {
+        this.setAngleExterne2(angleExterne2);
+        return this;
+    }
+
+    public void setAngleExterne2(Double angleExterne2) {
+        this.angleExterne2 = angleExterne2;
+    }
+
+    public Double getAngledepouille1() {
+        return this.angledepouille1;
+    }
+
+    public StudentPW angledepouille1(Double angledepouille1) {
+        this.setAngledepouille1(angledepouille1);
+        return this;
+    }
+
+    public void setAngledepouille1(Double angledepouille1) {
+        this.angledepouille1 = angledepouille1;
+    }
+
+    public Double getAngledepouille2() {
+        return this.angledepouille2;
+    }
+
+    public StudentPW angledepouille2(Double angledepouille2) {
+        this.setAngledepouille2(angledepouille2);
+        return this;
+    }
+
+    public void setAngledepouille2(Double angledepouille2) {
+        this.angledepouille2 = angledepouille2;
+    }
+
+    public Double getAngleConvergence() {
+        return this.angleConvergence;
+    }
+
+    public StudentPW angleConvergence(Double angleConvergence) {
+        this.setAngleConvergence(angleConvergence);
+        return this;
+    }
+
+    public void setAngleConvergence(Double angleConvergence) {
+        this.angleConvergence = angleConvergence;
     }
 
     public Student getStudent() {
@@ -242,15 +290,18 @@ public class StudentPW implements Serializable {
     public String toString() {
         return "StudentPW{" +
             "id=" + getId() +
-            ", time='" + getTime() + "'" +
             ", imageFront='" + getImageFront() + "'" +
             ", imageFrontContentType='" + getImageFrontContentType() + "'" +
             ", imageSide='" + getImageSide() + "'" +
             ", imageSideContentType='" + getImageSideContentType() + "'" +
             ", date='" + getDate() + "'" +
-            ", mesureAngle1='" + getMesureAngle1() + "'" +
-            ", mesureAngle2='" + getMesureAngle2() + "'" +
-            ", intersection='" + getIntersection() + "'" +
+            ", angleInterne1=" + getAngleInterne1() +
+            ", angleInterne2=" + getAngleInterne2() +
+            ", angleExterne1=" + getAngleExterne1() +
+            ", angleExterne2=" + getAngleExterne2() +
+            ", angledepouille1=" + getAngledepouille1() +
+            ", angledepouille2=" + getAngledepouille2() +
+            ", angleConvergence=" + getAngleConvergence() +
             "}";
     }
 }

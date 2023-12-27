@@ -4,7 +4,7 @@ import { IPW } from 'app/entities/pw/pw.model';
 export interface IGroupe {
   id: number;
   code?: string | null;
-  year?: string | null;
+  annee?: string | null;
   professor?: Pick<IProfessor, 'id'> | null;
   pws?: Pick<IPW, 'id' | 'title'>[] | null;
 }

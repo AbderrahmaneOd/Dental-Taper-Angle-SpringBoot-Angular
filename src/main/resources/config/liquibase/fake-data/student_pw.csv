@@ -1,11 +1,11 @@
-id;time;image_front;image_front_content_type;image_side;image_side_content_type;date;mesure_angle_1;mesure_angle_2;intersection;student_id;pw_id
-1;ha;../fake-data/blob/hipster.png;image/png;../fake-data/blob/hipster.png;image/png;2023-12-22;communauté étudiante insuffisamment;sans que hé de la part de;chez aussitôt que boum;1;1
-2;d'avec avant-hier jeune enfant;../fake-data/blob/hipster.png;image/png;../fake-data/blob/hipster.png;image/png;2023-12-22;spécialiste délégation;lentement;smack;2;2
-3;beaucoup à la merci;../fake-data/blob/hipster.png;image/png;../fake-data/blob/hipster.png;image/png;2023-12-22;lutter au point que;miaou;balayer conseil municipal;2;3
-4;clac aujourd'hui sauf;../fake-data/blob/hipster.png;image/png;../fake-data/blob/hipster.png;image/png;2023-12-23;rapporter à côté de areu areu;super;à condition que puis;2;4
-5;toc-toc pendant que atchoum;../fake-data/blob/hipster.png;image/png;../fake-data/blob/hipster.png;image/png;2023-12-23;clientèle;taper hi boire;novice;2;5
-6;paf malgré initier;../fake-data/blob/hipster.png;image/png;../fake-data/blob/hipster.png;image/png;2023-12-23;meuh;après que;quoique marron dynamique;2;6
-7;toc-toc charger;../fake-data/blob/hipster.png;image/png;../fake-data/blob/hipster.png;image/png;2023-12-23;au cas où toc;à la merci;vétuste camper;2;7
-8;depuis;../fake-data/blob/hipster.png;image/png;../fake-data/blob/hipster.png;image/png;2023-12-22;nourrir contre avant;vétuste repasser;hebdomadaire d’autant que jeune enfant;1;8
-9;tchou tchouu passager aussitôt que;../fake-data/blob/hipster.png;image/png;../fake-data/blob/hipster.png;image/png;2023-12-23;ronfler touriste;quand ?;vlan biathlète tandis que;1;9
-10;proche athlète lentement;../fake-data/blob/hipster.png;image/png;../fake-data/blob/hipster.png;image/png;2023-12-23;de;si;délégation;1;10
+id;image_front;image_front_content_type;image_side;image_side_content_type;date;angle_interne_1;angle_interne_2;angle_externe_1;angle_externe_2;angledepouille_1;angledepouille_2;angle_convergence;student_id;pw_id
+1;../fake-data/blob/hipster.png;image/png;../fake-data/blob/hipster.png;image/png;2023-12-23;20707.42;1226.31;7870.25;21809.42;6586.31;27597.99;15267.08;1;1
+2;../fake-data/blob/hipster.png;image/png;../fake-data/blob/hipster.png;image/png;2023-12-22;11694.38;16496.77;4665.99;2477.71;24809.26;23599.71;32522.73;2;2
+3;../fake-data/blob/hipster.png;image/png;../fake-data/blob/hipster.png;image/png;2023-12-22;3496.27;2428.36;1144.71;21661.17;26434.27;13911.87;9925.53;2;3
+4;../fake-data/blob/hipster.png;image/png;../fake-data/blob/hipster.png;image/png;2023-12-22;30974.66;5141.38;1392.8;503.92;1549.01;22863.31;32501.45;2;4
+5;../fake-data/blob/hipster.png;image/png;../fake-data/blob/hipster.png;image/png;2023-12-22;4706.55;29673.04;6514.84;12100.86;30034.96;16304.58;22955.47;1;5
+6;../fake-data/blob/hipster.png;image/png;../fake-data/blob/hipster.png;image/png;2023-12-22;4292.55;26556.13;25174.56;27805.37;23820.12;23446.21;7156.66;1;6
+7;../fake-data/blob/hipster.png;image/png;../fake-data/blob/hipster.png;image/png;2023-12-23;24409.11;8906.92;19722.86;5057.45;1385.01;22532.28;2000.92;2;7
+8;../fake-data/blob/hipster.png;image/png;../fake-data/blob/hipster.png;image/png;2023-12-22;1254.53;17723.26;3342.07;26352.85;13479.07;10442.88;7455.76;2;8
+9;../fake-data/blob/hipster.png;image/png;../fake-data/blob/hipster.png;image/png;2023-12-23;29167.66;29294.89;5189.04;22237;20462.19;10976.34;3520.7;2;9
+10;../fake-data/blob/hipster.png;image/png;../fake-data/blob/hipster.png;image/png;2023-12-23;9104.76;24618.19;23021.42;927.26;18802.98;22938.35;27952.41;2;10

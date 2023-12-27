@@ -54,10 +54,10 @@ describe('StudentPW Management Update Component', () => {
   describe('ngOnInit', () => {
     it('Should call Student query and add missing value', () => {
       const studentPW: IStudentPW = { id: 456 };
-      const student: IStudent = { id: 14554 };
+      const student: IStudent = { id: 7342 };
       studentPW.student = student;
 
-      const studentCollection: IStudent[] = [{ id: 31623 }];
+      const studentCollection: IStudent[] = [{ id: 7553 }];
       jest.spyOn(studentService, 'query').mockReturnValue(of(new HttpResponse({ body: studentCollection })));
       const additionalStudents = [student];
       const expectedCollection: IStudent[] = [...additionalStudents, ...studentCollection];
@@ -95,7 +95,7 @@ describe('StudentPW Management Update Component', () => {
 
     it('Should update editForm', () => {
       const studentPW: IStudentPW = { id: 456 };
-      const student: IStudent = { id: 3206 };
+      const student: IStudent = { id: 17378 };
       studentPW.student = student;
       const pw: IPW = { id: 11567 };
       studentPW.pw = pw;

@@ -3,7 +3,7 @@
     <span jhiTranslate="profEtudiantApp.professor.home.title">Professors</span>
 
     <div class="d-flex justify-content-end">
-      <button class="btn btn-success btn-sm me-2" (click)="load()" [disabled]="isLoading">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
         <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
         <span jhiTranslate="profEtudiantApp.professor.home.refreshListLabel">Actualiser la liste</span>
       </button>
@@ -11,7 +11,7 @@
       <button
         id="jh-create-entity"
         data-cy="entityCreateButton"
-        class="btn btn-secondary btn-sm jh-create-entity create-professor"
+        class="btn btn-primary jh-create-entity create-professor"
         [routerLink]="['/professor/new']"
       >
         <fa-icon icon="plus"></fa-icon>
@@ -29,7 +29,7 @@
   </div>
 
   <div class="table-responsive table-entities" id="entities" *ngIf="professors && professors.length > 0">
-    <table class="table table-bordered" aria-describedby="page-heading">
+    <table class="table table-striped" aria-describedby="page-heading">
       <thead>
         <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
           <th scope="col" jhiSortBy="id">
@@ -50,11 +50,7 @@
               <fa-icon class="p-1" icon="sort"></fa-icon>
             </div>
           </th>
-          <th scope="col">
-            <div class="d-flex justify-content-center">
-              <span>Action</span>
-            </div>
-          </th>
+          <th scope="col"></th>
         </tr>
       </thead>
       <tbody>
@@ -67,18 +63,18 @@
             {{ professor.user?.login }}
           </td>
           <td class="text-end">
-            <div class="d-flex justify-content-center">
-              <a [routerLink]="['/professor', professor.id, 'view']" class="btn btn-outline-info btn-sm" data-cy="entityDetailsButton">
+            <div class="btn-group">
+              <a [routerLink]="['/professor', professor.id, 'view']" class="btn btn-info btn-sm" data-cy="entityDetailsButton">
                 <fa-icon icon="eye"></fa-icon>
                 <span class="d-none d-md-inline" jhiTranslate="entity.action.view">Voir</span>
               </a>
 
-              <a [routerLink]="['/professor', professor.id, 'edit']" class="btn btn-outline-primary btn-sm" data-cy="entityEditButton">
+              <a [routerLink]="['/professor', professor.id, 'edit']" class="btn btn-primary btn-sm" data-cy="entityEditButton">
                 <fa-icon icon="pencil-alt"></fa-icon>
                 <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Editer</span>
               </a>
 
-              <button type="submit" (click)="delete(professor)" class="btn btn-outline-danger btn-sm" data-cy="entityDeleteButton">
+              <button type="submit" (click)="delete(professor)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
                 <fa-icon icon="times"></fa-icon>
                 <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Supprimer</span>
               </button>

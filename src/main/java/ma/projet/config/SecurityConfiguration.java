@@ -49,7 +49,7 @@ public class SecurityConfiguration {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http, MvcRequestMatcher.Builder mvc) throws Exception {
         http
-            .cors(withDefaults())
+            /*.cors(withDefaults())
             .csrf(csrf ->
                 csrf
                     .csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
@@ -68,7 +68,9 @@ public class SecurityConfiguration {
                             "camera=(), fullscreen=(self), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), midi=(), payment=(), sync-xhr=()"
                         )
                     )
-            )
+            )*/
+            .cors(cors -> cors.disable()) // Disable CORS
+            .csrf(csrf -> csrf.disable()) // Disable CSRF protection
             .authorizeHttpRequests(authz ->
                 // prettier-ignore
                 authz

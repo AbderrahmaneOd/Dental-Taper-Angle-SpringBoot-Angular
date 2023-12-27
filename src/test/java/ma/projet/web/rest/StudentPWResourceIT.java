@@ -43,9 +43,6 @@ import org.springframework.util.Base64Utils;
 @WithMockUser
 class StudentPWResourceIT {
 
-    private static final String DEFAULT_TIME = "AAAAAAAAAA";
-    private static final String UPDATED_TIME = "BBBBBBBBBB";
-
     private static final byte[] DEFAULT_IMAGE_FRONT = TestUtil.createByteArray(1, "0");
     private static final byte[] UPDATED_IMAGE_FRONT = TestUtil.createByteArray(1, "1");
     private static final String DEFAULT_IMAGE_FRONT_CONTENT_TYPE = "image/jpg";
@@ -59,14 +56,26 @@ class StudentPWResourceIT {
     private static final LocalDate DEFAULT_DATE = LocalDate.ofEpochDay(0L);
     private static final LocalDate UPDATED_DATE = LocalDate.now(ZoneId.systemDefault());
 
-    private static final String DEFAULT_MESURE_ANGLE_1 = "AAAAAAAAAA";
-    private static final String UPDATED_MESURE_ANGLE_1 = "BBBBBBBBBB";
+    private static final Double DEFAULT_ANGLE_INTERNE_1 = 1D;
+    private static final Double UPDATED_ANGLE_INTERNE_1 = 2D;
 
-    private static final String DEFAULT_MESURE_ANGLE_2 = "AAAAAAAAAA";
-    private static final String UPDATED_MESURE_ANGLE_2 = "BBBBBBBBBB";
+    private static final Double DEFAULT_ANGLE_INTERNE_2 = 1D;
+    private static final Double UPDATED_ANGLE_INTERNE_2 = 2D;
 
-    private static final String DEFAULT_INTERSECTION = "AAAAAAAAAA";
-    private static final String UPDATED_INTERSECTION = "BBBBBBBBBB";
+    private static final Double DEFAULT_ANGLE_EXTERNE_1 = 1D;
+    private static final Double UPDATED_ANGLE_EXTERNE_1 = 2D;
+
+    private static final Double DEFAULT_ANGLE_EXTERNE_2 = 1D;
+    private static final Double UPDATED_ANGLE_EXTERNE_2 = 2D;
+
+    private static final Double DEFAULT_ANGLEDEPOUILLE_1 = 1D;
+    private static final Double UPDATED_ANGLEDEPOUILLE_1 = 2D;
+
+    private static final Double DEFAULT_ANGLEDEPOUILLE_2 = 1D;
+    private static final Double UPDATED_ANGLEDEPOUILLE_2 = 2D;
+
+    private static final Double DEFAULT_ANGLE_CONVERGENCE = 1D;
+    private static final Double UPDATED_ANGLE_CONVERGENCE = 2D;
 
     private static final String ENTITY_API_URL = "/api/student-pws";
     private static final String ENTITY_API_URL_ID = ENTITY_API_URL + "/{id}";
@@ -96,15 +105,18 @@ class StudentPWResourceIT {
      */
     public static StudentPW createEntity(EntityManager em) {
         StudentPW studentPW = new StudentPW()
-            .time(DEFAULT_TIME)
             .imageFront(DEFAULT_IMAGE_FRONT)
             .imageFrontContentType(DEFAULT_IMAGE_FRONT_CONTENT_TYPE)
             .imageSide(DEFAULT_IMAGE_SIDE)
             .imageSideContentType(DEFAULT_IMAGE_SIDE_CONTENT_TYPE)
             .date(DEFAULT_DATE)
-            .mesureAngle1(DEFAULT_MESURE_ANGLE_1)
-            .mesureAngle2(DEFAULT_MESURE_ANGLE_2)
-            .intersection(DEFAULT_INTERSECTION);
+            .angleInterne1(DEFAULT_ANGLE_INTERNE_1)
+            .angleInterne2(DEFAULT_ANGLE_INTERNE_2)
+            .angleExterne1(DEFAULT_ANGLE_EXTERNE_1)
+            .angleExterne2(DEFAULT_ANGLE_EXTERNE_2)
+            .angledepouille1(DEFAULT_ANGLEDEPOUILLE_1)
+            .angledepouille2(DEFAULT_ANGLEDEPOUILLE_2)
+            .angleConvergence(DEFAULT_ANGLE_CONVERGENCE);
         // Add required entity
         Student student;
         if (TestUtil.findAll(em, Student.class).isEmpty()) {
@@ -136,15 +148,18 @@ class StudentPWResourceIT {
      */
     public static StudentPW createUpdatedEntity(EntityManager em) {
         StudentPW studentPW = new StudentPW()
-            .time(UPDATED_TIME)
             .imageFront(UPDATED_IMAGE_FRONT)
             .imageFrontContentType(UPDATED_IMAGE_FRONT_CONTENT_TYPE)
             .imageSide(UPDATED_IMAGE_SIDE)
             .imageSideContentType(UPDATED_IMAGE_SIDE_CONTENT_TYPE)
             .date(UPDATED_DATE)
-            .mesureAngle1(UPDATED_MESURE_ANGLE_1)
-            .mesureAngle2(UPDATED_MESURE_ANGLE_2)
-            .intersection(UPDATED_INTERSECTION);
+            .angleInterne1(UPDATED_ANGLE_INTERNE_1)
+            .angleInterne2(UPDATED_ANGLE_INTERNE_2)
+            .angleExterne1(UPDATED_ANGLE_EXTERNE_1)
+            .angleExterne2(UPDATED_ANGLE_EXTERNE_2)
+            .angledepouille1(UPDATED_ANGLEDEPOUILLE_1)
+            .angledepouille2(UPDATED_ANGLEDEPOUILLE_2)
+            .angleConvergence(UPDATED_ANGLE_CONVERGENCE);
         // Add required entity
         Student student;
         if (TestUtil.findAll(em, Student.class).isEmpty()) {
@@ -191,15 +206,18 @@ class StudentPWResourceIT {
         List<StudentPW> studentPWList = studentPWRepository.findAll();
         assertThat(studentPWList).hasSize(databaseSizeBeforeCreate + 1);
         StudentPW testStudentPW = studentPWList.get(studentPWList.size() - 1);
-        assertThat(testStudentPW.getTime()).isEqualTo(DEFAULT_TIME);
         assertThat(testStudentPW.getImageFront()).isEqualTo(DEFAULT_IMAGE_FRONT);
         assertThat(testStudentPW.getImageFrontContentType()).isEqualTo(DEFAULT_IMAGE_FRONT_CONTENT_TYPE);
         assertThat(testStudentPW.getImageSide()).isEqualTo(DEFAULT_IMAGE_SIDE);
         assertThat(testStudentPW.getImageSideContentType()).isEqualTo(DEFAULT_IMAGE_SIDE_CONTENT_TYPE);
         assertThat(testStudentPW.getDate()).isEqualTo(DEFAULT_DATE);
-        assertThat(testStudentPW.getMesureAngle1()).isEqualTo(DEFAULT_MESURE_ANGLE_1);
-        assertThat(testStudentPW.getMesureAngle2()).isEqualTo(DEFAULT_MESURE_ANGLE_2);
-        assertThat(testStudentPW.getIntersection()).isEqualTo(DEFAULT_INTERSECTION);
+        assertThat(testStudentPW.getAngleInterne1()).isEqualTo(DEFAULT_ANGLE_INTERNE_1);
+        assertThat(testStudentPW.getAngleInterne2()).isEqualTo(DEFAULT_ANGLE_INTERNE_2);
+        assertThat(testStudentPW.getAngleExterne1()).isEqualTo(DEFAULT_ANGLE_EXTERNE_1);
+        assertThat(testStudentPW.getAngleExterne2()).isEqualTo(DEFAULT_ANGLE_EXTERNE_2);
+        assertThat(testStudentPW.getAngledepouille1()).isEqualTo(DEFAULT_ANGLEDEPOUILLE_1);
+        assertThat(testStudentPW.getAngledepouille2()).isEqualTo(DEFAULT_ANGLEDEPOUILLE_2);
+        assertThat(testStudentPW.getAngleConvergence()).isEqualTo(DEFAULT_ANGLE_CONVERGENCE);
     }
 
     @Test
@@ -237,15 +255,18 @@ class StudentPWResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(studentPW.getId().intValue())))
-            .andExpect(jsonPath("$.[*].time").value(hasItem(DEFAULT_TIME)))
             .andExpect(jsonPath("$.[*].imageFrontContentType").value(hasItem(DEFAULT_IMAGE_FRONT_CONTENT_TYPE)))
             .andExpect(jsonPath("$.[*].imageFront").value(hasItem(Base64Utils.encodeToString(DEFAULT_IMAGE_FRONT))))
             .andExpect(jsonPath("$.[*].imageSideContentType").value(hasItem(DEFAULT_IMAGE_SIDE_CONTENT_TYPE)))
             .andExpect(jsonPath("$.[*].imageSide").value(hasItem(Base64Utils.encodeToString(DEFAULT_IMAGE_SIDE))))
             .andExpect(jsonPath("$.[*].date").value(hasItem(DEFAULT_DATE.toString())))
-            .andExpect(jsonPath("$.[*].mesureAngle1").value(hasItem(DEFAULT_MESURE_ANGLE_1)))
-            .andExpect(jsonPath("$.[*].mesureAngle2").value(hasItem(DEFAULT_MESURE_ANGLE_2)))
-            .andExpect(jsonPath("$.[*].intersection").value(hasItem(DEFAULT_INTERSECTION)));
+            .andExpect(jsonPath("$.[*].angleInterne1").value(hasItem(DEFAULT_ANGLE_INTERNE_1.doubleValue())))
+            .andExpect(jsonPath("$.[*].angleInterne2").value(hasItem(DEFAULT_ANGLE_INTERNE_2.doubleValue())))
+            .andExpect(jsonPath("$.[*].angleExterne1").value(hasItem(DEFAULT_ANGLE_EXTERNE_1.doubleValue())))
+            .andExpect(jsonPath("$.[*].angleExterne2").value(hasItem(DEFAULT_ANGLE_EXTERNE_2.doubleValue())))
+            .andExpect(jsonPath("$.[*].angledepouille1").value(hasItem(DEFAULT_ANGLEDEPOUILLE_1.doubleValue())))
+            .andExpect(jsonPath("$.[*].angledepouille2").value(hasItem(DEFAULT_ANGLEDEPOUILLE_2.doubleValue())))
+            .andExpect(jsonPath("$.[*].angleConvergence").value(hasItem(DEFAULT_ANGLE_CONVERGENCE.doubleValue())));
     }
 
     @SuppressWarnings({ "unchecked" })
@@ -277,15 +298,18 @@ class StudentPWResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.id").value(studentPW.getId().intValue()))
-            .andExpect(jsonPath("$.time").value(DEFAULT_TIME))
             .andExpect(jsonPath("$.imageFrontContentType").value(DEFAULT_IMAGE_FRONT_CONTENT_TYPE))
             .andExpect(jsonPath("$.imageFront").value(Base64Utils.encodeToString(DEFAULT_IMAGE_FRONT)))
             .andExpect(jsonPath("$.imageSideContentType").value(DEFAULT_IMAGE_SIDE_CONTENT_TYPE))
             .andExpect(jsonPath("$.imageSide").value(Base64Utils.encodeToString(DEFAULT_IMAGE_SIDE)))
             .andExpect(jsonPath("$.date").value(DEFAULT_DATE.toString()))
-            .andExpect(jsonPath("$.mesureAngle1").value(DEFAULT_MESURE_ANGLE_1))
-            .andExpect(jsonPath("$.mesureAngle2").value(DEFAULT_MESURE_ANGLE_2))
-            .andExpect(jsonPath("$.intersection").value(DEFAULT_INTERSECTION));
+            .andExpect(jsonPath("$.angleInterne1").value(DEFAULT_ANGLE_INTERNE_1.doubleValue()))
+            .andExpect(jsonPath("$.angleInterne2").value(DEFAULT_ANGLE_INTERNE_2.doubleValue()))
+            .andExpect(jsonPath("$.angleExterne1").value(DEFAULT_ANGLE_EXTERNE_1.doubleValue()))
+            .andExpect(jsonPath("$.angleExterne2").value(DEFAULT_ANGLE_EXTERNE_2.doubleValue()))
+            .andExpect(jsonPath("$.angledepouille1").value(DEFAULT_ANGLEDEPOUILLE_1.doubleValue()))
+            .andExpect(jsonPath("$.angledepouille2").value(DEFAULT_ANGLEDEPOUILLE_2.doubleValue()))
+            .andExpect(jsonPath("$.angleConvergence").value(DEFAULT_ANGLE_CONVERGENCE.doubleValue()));
     }
 
     @Test
@@ -308,15 +332,18 @@ class StudentPWResourceIT {
         // Disconnect from session so that the updates on updatedStudentPW are not directly saved in db
         em.detach(updatedStudentPW);
         updatedStudentPW
-            .time(UPDATED_TIME)
             .imageFront(UPDATED_IMAGE_FRONT)
             .imageFrontContentType(UPDATED_IMAGE_FRONT_CONTENT_TYPE)
             .imageSide(UPDATED_IMAGE_SIDE)
             .imageSideContentType(UPDATED_IMAGE_SIDE_CONTENT_TYPE)
             .date(UPDATED_DATE)
-            .mesureAngle1(UPDATED_MESURE_ANGLE_1)
-            .mesureAngle2(UPDATED_MESURE_ANGLE_2)
-            .intersection(UPDATED_INTERSECTION);
+            .angleInterne1(UPDATED_ANGLE_INTERNE_1)
+            .angleInterne2(UPDATED_ANGLE_INTERNE_2)
+            .angleExterne1(UPDATED_ANGLE_EXTERNE_1)
+            .angleExterne2(UPDATED_ANGLE_EXTERNE_2)
+            .angledepouille1(UPDATED_ANGLEDEPOUILLE_1)
+            .angledepouille2(UPDATED_ANGLEDEPOUILLE_2)
+            .angleConvergence(UPDATED_ANGLE_CONVERGENCE);
 
         restStudentPWMockMvc
             .perform(
@@ -331,15 +358,18 @@ class StudentPWResourceIT {
         List<StudentPW> studentPWList = studentPWRepository.findAll();
         assertThat(studentPWList).hasSize(databaseSizeBeforeUpdate);
         StudentPW testStudentPW = studentPWList.get(studentPWList.size() - 1);
-        assertThat(testStudentPW.getTime()).isEqualTo(UPDATED_TIME);
         assertThat(testStudentPW.getImageFront()).isEqualTo(UPDATED_IMAGE_FRONT);
         assertThat(testStudentPW.getImageFrontContentType()).isEqualTo(UPDATED_IMAGE_FRONT_CONTENT_TYPE);
         assertThat(testStudentPW.getImageSide()).isEqualTo(UPDATED_IMAGE_SIDE);
         assertThat(testStudentPW.getImageSideContentType()).isEqualTo(UPDATED_IMAGE_SIDE_CONTENT_TYPE);
         assertThat(testStudentPW.getDate()).isEqualTo(UPDATED_DATE);
-        assertThat(testStudentPW.getMesureAngle1()).isEqualTo(UPDATED_MESURE_ANGLE_1);
-        assertThat(testStudentPW.getMesureAngle2()).isEqualTo(UPDATED_MESURE_ANGLE_2);
-        assertThat(testStudentPW.getIntersection()).isEqualTo(UPDATED_INTERSECTION);
+        assertThat(testStudentPW.getAngleInterne1()).isEqualTo(UPDATED_ANGLE_INTERNE_1);
+        assertThat(testStudentPW.getAngleInterne2()).isEqualTo(UPDATED_ANGLE_INTERNE_2);
+        assertThat(testStudentPW.getAngleExterne1()).isEqualTo(UPDATED_ANGLE_EXTERNE_1);
+        assertThat(testStudentPW.getAngleExterne2()).isEqualTo(UPDATED_ANGLE_EXTERNE_2);
+        assertThat(testStudentPW.getAngledepouille1()).isEqualTo(UPDATED_ANGLEDEPOUILLE_1);
+        assertThat(testStudentPW.getAngledepouille2()).isEqualTo(UPDATED_ANGLEDEPOUILLE_2);
+        assertThat(testStudentPW.getAngleConvergence()).isEqualTo(UPDATED_ANGLE_CONVERGENCE);
     }
 
     @Test
@@ -417,7 +447,15 @@ class StudentPWResourceIT {
         StudentPW partialUpdatedStudentPW = new StudentPW();
         partialUpdatedStudentPW.setId(studentPW.getId());
 
-        partialUpdatedStudentPW.date(UPDATED_DATE).mesureAngle2(UPDATED_MESURE_ANGLE_2);
+        partialUpdatedStudentPW
+            .imageSide(UPDATED_IMAGE_SIDE)
+            .imageSideContentType(UPDATED_IMAGE_SIDE_CONTENT_TYPE)
+            .angleInterne1(UPDATED_ANGLE_INTERNE_1)
+            .angleInterne2(UPDATED_ANGLE_INTERNE_2)
+            .angleExterne1(UPDATED_ANGLE_EXTERNE_1)
+            .angleExterne2(UPDATED_ANGLE_EXTERNE_2)
+            .angledepouille1(UPDATED_ANGLEDEPOUILLE_1)
+            .angleConvergence(UPDATED_ANGLE_CONVERGENCE);
 
         restStudentPWMockMvc
             .perform(
@@ -432,15 +470,18 @@ class StudentPWResourceIT {
         List<StudentPW> studentPWList = studentPWRepository.findAll();
         assertThat(studentPWList).hasSize(databaseSizeBeforeUpdate);
         StudentPW testStudentPW = studentPWList.get(studentPWList.size() - 1);
-        assertThat(testStudentPW.getTime()).isEqualTo(DEFAULT_TIME);
         assertThat(testStudentPW.getImageFront()).isEqualTo(DEFAULT_IMAGE_FRONT);
         assertThat(testStudentPW.getImageFrontContentType()).isEqualTo(DEFAULT_IMAGE_FRONT_CONTENT_TYPE);
-        assertThat(testStudentPW.getImageSide()).isEqualTo(DEFAULT_IMAGE_SIDE);
-        assertThat(testStudentPW.getImageSideContentType()).isEqualTo(DEFAULT_IMAGE_SIDE_CONTENT_TYPE);
-        assertThat(testStudentPW.getDate()).isEqualTo(UPDATED_DATE);
-        assertThat(testStudentPW.getMesureAngle1()).isEqualTo(DEFAULT_MESURE_ANGLE_1);
-        assertThat(testStudentPW.getMesureAngle2()).isEqualTo(UPDATED_MESURE_ANGLE_2);
-        assertThat(testStudentPW.getIntersection()).isEqualTo(DEFAULT_INTERSECTION);
+        assertThat(testStudentPW.getImageSide()).isEqualTo(UPDATED_IMAGE_SIDE);
+        assertThat(testStudentPW.getImageSideContentType()).isEqualTo(UPDATED_IMAGE_SIDE_CONTENT_TYPE);
+        assertThat(testStudentPW.getDate()).isEqualTo(DEFAULT_DATE);
+        assertThat(testStudentPW.getAngleInterne1()).isEqualTo(UPDATED_ANGLE_INTERNE_1);
+        assertThat(testStudentPW.getAngleInterne2()).isEqualTo(UPDATED_ANGLE_INTERNE_2);
+        assertThat(testStudentPW.getAngleExterne1()).isEqualTo(UPDATED_ANGLE_EXTERNE_1);
+        assertThat(testStudentPW.getAngleExterne2()).isEqualTo(UPDATED_ANGLE_EXTERNE_2);
+        assertThat(testStudentPW.getAngledepouille1()).isEqualTo(UPDATED_ANGLEDEPOUILLE_1);
+        assertThat(testStudentPW.getAngledepouille2()).isEqualTo(DEFAULT_ANGLEDEPOUILLE_2);
+        assertThat(testStudentPW.getAngleConvergence()).isEqualTo(UPDATED_ANGLE_CONVERGENCE);
     }
 
     @Test
@@ -456,15 +497,18 @@ class StudentPWResourceIT {
         partialUpdatedStudentPW.setId(studentPW.getId());
 
         partialUpdatedStudentPW
-            .time(UPDATED_TIME)
             .imageFront(UPDATED_IMAGE_FRONT)
             .imageFrontContentType(UPDATED_IMAGE_FRONT_CONTENT_TYPE)
             .imageSide(UPDATED_IMAGE_SIDE)
             .imageSideContentType(UPDATED_IMAGE_SIDE_CONTENT_TYPE)
             .date(UPDATED_DATE)
-            .mesureAngle1(UPDATED_MESURE_ANGLE_1)
-            .mesureAngle2(UPDATED_MESURE_ANGLE_2)
-            .intersection(UPDATED_INTERSECTION);
+            .angleInterne1(UPDATED_ANGLE_INTERNE_1)
+            .angleInterne2(UPDATED_ANGLE_INTERNE_2)
+            .angleExterne1(UPDATED_ANGLE_EXTERNE_1)
+            .angleExterne2(UPDATED_ANGLE_EXTERNE_2)
+            .angledepouille1(UPDATED_ANGLEDEPOUILLE_1)
+            .angledepouille2(UPDATED_ANGLEDEPOUILLE_2)
+            .angleConvergence(UPDATED_ANGLE_CONVERGENCE);
 
         restStudentPWMockMvc
             .perform(
@@ -479,15 +523,18 @@ class StudentPWResourceIT {
         List<StudentPW> studentPWList = studentPWRepository.findAll();
         assertThat(studentPWList).hasSize(databaseSizeBeforeUpdate);
         StudentPW testStudentPW = studentPWList.get(studentPWList.size() - 1);
-        assertThat(testStudentPW.getTime()).isEqualTo(UPDATED_TIME);
         assertThat(testStudentPW.getImageFront()).isEqualTo(UPDATED_IMAGE_FRONT);
         assertThat(testStudentPW.getImageFrontContentType()).isEqualTo(UPDATED_IMAGE_FRONT_CONTENT_TYPE);
         assertThat(testStudentPW.getImageSide()).isEqualTo(UPDATED_IMAGE_SIDE);
         assertThat(testStudentPW.getImageSideContentType()).isEqualTo(UPDATED_IMAGE_SIDE_CONTENT_TYPE);
         assertThat(testStudentPW.getDate()).isEqualTo(UPDATED_DATE);
-        assertThat(testStudentPW.getMesureAngle1()).isEqualTo(UPDATED_MESURE_ANGLE_1);
-        assertThat(testStudentPW.getMesureAngle2()).isEqualTo(UPDATED_MESURE_ANGLE_2);
-        assertThat(testStudentPW.getIntersection()).isEqualTo(UPDATED_INTERSECTION);
+        assertThat(testStudentPW.getAngleInterne1()).isEqualTo(UPDATED_ANGLE_INTERNE_1);
+        assertThat(testStudentPW.getAngleInterne2()).isEqualTo(UPDATED_ANGLE_INTERNE_2);
+        assertThat(testStudentPW.getAngleExterne1()).isEqualTo(UPDATED_ANGLE_EXTERNE_1);
+        assertThat(testStudentPW.getAngleExterne2()).isEqualTo(UPDATED_ANGLE_EXTERNE_2);
+        assertThat(testStudentPW.getAngledepouille1()).isEqualTo(UPDATED_ANGLEDEPOUILLE_1);
+        assertThat(testStudentPW.getAngledepouille2()).isEqualTo(UPDATED_ANGLEDEPOUILLE_2);
+        assertThat(testStudentPW.getAngleConvergence()).isEqualTo(UPDATED_ANGLE_CONVERGENCE);
     }
 
     @Test

@@ -19,7 +19,7 @@ type GroupeFormDefaults = Pick<NewGroupe, 'id' | 'pws'>;
 type GroupeFormGroupContent = {
   id: FormControl<IGroupe['id'] | NewGroupe['id']>;
   code: FormControl<IGroupe['code']>;
-  year: FormControl<IGroupe['year']>;
+  annee: FormControl<IGroupe['annee']>;
   professor: FormControl<IGroupe['professor']>;
   pws: FormControl<IGroupe['pws']>;
 };
@@ -42,7 +42,7 @@ export class GroupeFormService {
         },
       ),
       code: new FormControl(groupeRawValue.code),
-      year: new FormControl(groupeRawValue.year),
+      annee: new FormControl(groupeRawValue.annee),
       professor: new FormControl(groupeRawValue.professor, {
         validators: [Validators.required],
       }),

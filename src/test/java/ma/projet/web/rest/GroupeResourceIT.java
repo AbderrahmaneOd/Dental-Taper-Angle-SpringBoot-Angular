@@ -34,8 +34,8 @@ class GroupeResourceIT {
     private static final String DEFAULT_CODE = "AAAAAAAAAA";
     private static final String UPDATED_CODE = "BBBBBBBBBB";
 
-    private static final String DEFAULT_YEAR = "AAAAAAAAAA";
-    private static final String UPDATED_YEAR = "BBBBBBBBBB";
+    private static final String DEFAULT_ANNEE = "AAAAAAAAAA";
+    private static final String UPDATED_ANNEE = "BBBBBBBBBB";
 
     private static final String ENTITY_API_URL = "/api/groupes";
     private static final String ENTITY_API_URL_ID = ENTITY_API_URL + "/{id}";
@@ -61,7 +61,7 @@ class GroupeResourceIT {
      * if they test an entity which requires the current entity.
      */
     public static Groupe createEntity(EntityManager em) {
-        Groupe groupe = new Groupe().code(DEFAULT_CODE).year(DEFAULT_YEAR);
+        Groupe groupe = new Groupe().code(DEFAULT_CODE).annee(DEFAULT_ANNEE);
         // Add required entity
         Professor professor;
         if (TestUtil.findAll(em, Professor.class).isEmpty()) {
@@ -82,7 +82,7 @@ class GroupeResourceIT {
      * if they test an entity which requires the current entity.
      */
     public static Groupe createUpdatedEntity(EntityManager em) {
-        Groupe groupe = new Groupe().code(UPDATED_CODE).year(UPDATED_YEAR);
+        Groupe groupe = new Groupe().code(UPDATED_CODE).annee(UPDATED_ANNEE);
         // Add required entity
         Professor professor;
         if (TestUtil.findAll(em, Professor.class).isEmpty()) {
@@ -117,7 +117,7 @@ class GroupeResourceIT {
         assertThat(groupeList).hasSize(databaseSizeBeforeCreate + 1);
         Groupe testGroupe = groupeList.get(groupeList.size() - 1);
         assertThat(testGroupe.getCode()).isEqualTo(DEFAULT_CODE);
-        assertThat(testGroupe.getYear()).isEqualTo(DEFAULT_YEAR);
+        assertThat(testGroupe.getAnnee()).isEqualTo(DEFAULT_ANNEE);
     }
 
     @Test
@@ -153,7 +153,7 @@ class GroupeResourceIT {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(groupe.getId().intValue())))
             .andExpect(jsonPath("$.[*].code").value(hasItem(DEFAULT_CODE)))
-            .andExpect(jsonPath("$.[*].year").value(hasItem(DEFAULT_YEAR)));
+            .andExpect(jsonPath("$.[*].annee").value(hasItem(DEFAULT_ANNEE)));
     }
 
     @Test
@@ -169,7 +169,7 @@ class GroupeResourceIT {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.id").value(groupe.getId().intValue()))
             .andExpect(jsonPath("$.code").value(DEFAULT_CODE))
-            .andExpect(jsonPath("$.year").value(DEFAULT_YEAR));
+            .andExpect(jsonPath("$.annee").value(DEFAULT_ANNEE));
     }
 
     @Test
@@ -191,7 +191,7 @@ class GroupeResourceIT {
         Groupe updatedGroupe = groupeRepository.findById(groupe.getId()).orElseThrow();
         // Disconnect from session so that the updates on updatedGroupe are not directly saved in db
         em.detach(updatedGroupe);
-        updatedGroupe.code(UPDATED_CODE).year(UPDATED_YEAR);
+        updatedGroupe.code(UPDATED_CODE).annee(UPDATED_ANNEE);
 
         restGroupeMockMvc
             .perform(
@@ -207,7 +207,7 @@ class GroupeResourceIT {
         assertThat(groupeList).hasSize(databaseSizeBeforeUpdate);
         Groupe testGroupe = groupeList.get(groupeList.size() - 1);
         assertThat(testGroupe.getCode()).isEqualTo(UPDATED_CODE);
-        assertThat(testGroupe.getYear()).isEqualTo(UPDATED_YEAR);
+        assertThat(testGroupe.getAnnee()).isEqualTo(UPDATED_ANNEE);
     }
 
     @Test
@@ -282,7 +282,7 @@ class GroupeResourceIT {
         Groupe partialUpdatedGroupe = new Groupe();
         partialUpdatedGroupe.setId(groupe.getId());
 
-        partialUpdatedGroupe.year(UPDATED_YEAR);
+        partialUpdatedGroupe.annee(UPDATED_ANNEE);
 
         restGroupeMockMvc
             .perform(
@@ -298,7 +298,7 @@ class GroupeResourceIT {
         assertThat(groupeList).hasSize(databaseSizeBeforeUpdate);
         Groupe testGroupe = groupeList.get(groupeList.size() - 1);
         assertThat(testGroupe.getCode()).isEqualTo(DEFAULT_CODE);
-        assertThat(testGroupe.getYear()).isEqualTo(UPDATED_YEAR);
+        assertThat(testGroupe.getAnnee()).isEqualTo(UPDATED_ANNEE);
     }
 
     @Test
@@ -313,7 +313,7 @@ class GroupeResourceIT {
         Groupe partialUpdatedGroupe = new Groupe();
         partialUpdatedGroupe.setId(groupe.getId());
 
-        partialUpdatedGroupe.code(UPDATED_CODE).year(UPDATED_YEAR);
+        partialUpdatedGroupe.code(UPDATED_CODE).annee(UPDATED_ANNEE);
 
         restGroupeMockMvc
             .perform(
@@ -329,7 +329,7 @@ class GroupeResourceIT {
         assertThat(groupeList).hasSize(databaseSizeBeforeUpdate);
         Groupe testGroupe = groupeList.get(groupeList.size() - 1);
         assertThat(testGroupe.getCode()).isEqualTo(UPDATED_CODE);
-        assertThat(testGroupe.getYear()).isEqualTo(UPDATED_YEAR);
+        assertThat(testGroupe.getAnnee()).isEqualTo(UPDATED_ANNEE);
     }
 
     @Test

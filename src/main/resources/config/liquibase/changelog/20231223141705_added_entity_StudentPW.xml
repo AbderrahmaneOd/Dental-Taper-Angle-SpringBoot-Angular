@@ -14,9 +14,6 @@
             <column name="id" type="bigint" autoIncrement="true" startWith="1500">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
-            <column name="time" type="varchar(255)">
-                <constraints nullable="true" />
-            </column>
             <column name="image_front" type="${blobType}">
                 <constraints nullable="true" />
             </column>
@@ -32,13 +29,25 @@
             <column name="date" type="date">
                 <constraints nullable="true" />
             </column>
-            <column name="mesure_angle_1" type="varchar(255)">
+            <column name="angle_interne_1" type="double">
                 <constraints nullable="true" />
             </column>
-            <column name="mesure_angle_2" type="varchar(255)">
+            <column name="angle_interne_2" type="double">
                 <constraints nullable="true" />
             </column>
-            <column name="intersection" type="varchar(255)">
+            <column name="angle_externe_1" type="double">
+                <constraints nullable="true" />
+            </column>
+            <column name="angle_externe_2" type="double">
+                <constraints nullable="true" />
+            </column>
+            <column name="angledepouille_1" type="double">
+                <constraints nullable="true" />
+            </column>
+            <column name="angledepouille_2" type="double">
+                <constraints nullable="true" />
+            </column>
+            <column name="angle_convergence" type="double">
                 <constraints nullable="true" />
             </column>
             <column name="student_id" type="bigint">
@@ -68,15 +77,18 @@
                   tableName="student_pw"
                   usePreparedStatements="true">
             <column name="id" type="numeric"/>
-            <column name="time" type="string"/>
             <column name="image_front" type="blob"/>
             <column name="image_front_content_type" type="string"/>
             <column name="image_side" type="blob"/>
             <column name="image_side_content_type" type="string"/>
             <column name="date" type="date"/>
-            <column name="mesure_angle_1" type="string"/>
-            <column name="mesure_angle_2" type="string"/>
-            <column name="intersection" type="string"/>
+            <column name="angle_interne_1" type="numeric"/>
+            <column name="angle_interne_2" type="numeric"/>
+            <column name="angle_externe_1" type="numeric"/>
+            <column name="angle_externe_2" type="numeric"/>
+            <column name="angledepouille_1" type="numeric"/>
+            <column name="angledepouille_2" type="numeric"/>
+            <column name="angle_convergence" type="numeric"/>
             <column name="student_id" type="numeric"/>
             <column name="pw_id" type="numeric"/>
             <!-- jhipster-needle-liquibase-add-loadcolumn - JHipster (and/or extensions) can add load columns here -->

@@ -8,7 +8,7 @@
       "fieldType": "String"
     },
     {
-      "fieldName": "year",
+      "fieldName": "annee",
       "fieldType": "String"
     }
   ],

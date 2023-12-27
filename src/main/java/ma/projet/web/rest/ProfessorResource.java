@@ -9,13 +9,11 @@ import java.util.Objects;
 import java.util.Optional;
 import ma.projet.domain.Professor;
 import ma.projet.repository.ProfessorRepository;
-import ma.projet.security.AuthoritiesConstants;
 import ma.projet.web.rest.errors.BadRequestAlertException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 import tech.jhipster.web.util.HeaderUtil;
@@ -50,7 +48,6 @@ public class ProfessorResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PostMapping("")
-    @PreAuthorize("hasAuthority(\"" + AuthoritiesConstants.ADMIN + "\")")
     public ResponseEntity<Professor> createProfessor(@Valid @RequestBody Professor professor) throws URISyntaxException {
         log.debug("REST request to save Professor : {}", professor);
         if (professor.getId() != null) {
@@ -74,7 +71,6 @@ public class ProfessorResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PutMapping("/{id}")
-    @PreAuthorize("hasAuthority(\"" + AuthoritiesConstants.ADMIN + "\")")
     public ResponseEntity<Professor> updateProfessor(
         @PathVariable(value = "id", required = false) final Long id,
         @Valid @RequestBody Professor professor
@@ -110,7 +106,6 @@ public class ProfessorResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PatchMapping(value = "/{id}", consumes = { "application/json", "application/merge-patch+json" })
-    @PreAuthorize("hasAuthority(\"" + AuthoritiesConstants.ADMIN + "\")")
     public ResponseEntity<Professor> partialUpdateProfessor(
         @PathVariable(value = "id", required = false) final Long id,
         @NotNull @RequestBody Professor professor
@@ -151,7 +146,6 @@ public class ProfessorResource {
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of professors in body.
      */
     @GetMapping("")
-    @PreAuthorize("hasAuthority(\"" + AuthoritiesConstants.ADMIN + "\")")
     public List<Professor> getAllProfessors(@RequestParam(required = false, defaultValue = "true") boolean eagerload) {
         log.debug("REST request to get all Professors");
         if (eagerload) {
@@ -168,7 +162,6 @@ public class ProfessorResource {
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the professor, or with status {@code 404 (Not Found)}.
      */
     @GetMapping("/{id}")
-    @PreAuthorize("hasAuthority(\"" + AuthoritiesConstants.ADMIN + "\")")
     public ResponseEntity<Professor> getProfessor(@PathVariable Long id) {
         log.debug("REST request to get Professor : {}", id);
         Optional<Professor> professor = professorRepository.findOneWithEagerRelationships(id);
@@ -182,7 +175,6 @@ public class ProfessorResource {
      * @return the {@link ResponseEntity} with status {@code 204 (NO_CONTENT)}.
      */
     @DeleteMapping("/{id}")
-    @PreAuthorize("hasAuthority(\"" + AuthoritiesConstants.ADMIN + "\")")
     public ResponseEntity<Void> deleteProfessor(@PathVariable Long id) {
         log.debug("REST request to delete Professor : {}", id);
         professorRepository.deleteById(id);

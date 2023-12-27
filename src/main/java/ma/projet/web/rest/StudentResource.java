@@ -9,13 +9,11 @@ import java.util.Objects;
 import java.util.Optional;
 import ma.projet.domain.Student;
 import ma.projet.repository.StudentRepository;
-import ma.projet.security.AuthoritiesConstants;
 import ma.projet.web.rest.errors.BadRequestAlertException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 import tech.jhipster.web.util.HeaderUtil;
@@ -50,7 +48,6 @@ public class StudentResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PostMapping("")
-    @PreAuthorize("hasAuthority(\"" + AuthoritiesConstants.PROFESSOR + "\")")
     public ResponseEntity<Student> createStudent(@Valid @RequestBody Student student) throws URISyntaxException {
         log.debug("REST request to save Student : {}", student);
         if (student.getId() != null) {
@@ -74,7 +71,6 @@ public class StudentResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PutMapping("/{id}")
-    @PreAuthorize("hasAuthority(\"" + AuthoritiesConstants.PROFESSOR + "\")")
     public ResponseEntity<Student> updateStudent(
         @PathVariable(value = "id", required = false) final Long id,
         @Valid @RequestBody Student student
@@ -110,7 +106,6 @@ public class StudentResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PatchMapping(value = "/{id}", consumes = { "application/json", "application/merge-patch+json" })
-    @PreAuthorize("hasAuthority(\"" + AuthoritiesConstants.PROFESSOR + "\")")
     public ResponseEntity<Student> partialUpdateStudent(
         @PathVariable(value = "id", required = false) final Long id,
         @NotNull @RequestBody Student student
@@ -130,17 +125,14 @@ public class StudentResource {
         Optional<Student> result = studentRepository
             .findById(student.getId())
             .map(existingStudent -> {
-                if (student.getNumber() != null) {
-                    existingStudent.setNumber(student.getNumber());
+                if (student.getcNE() != null) {
+                    existingStudent.setcNE(student.getcNE());
                 }
-                if (student.getCne() != null) {
-                    existingStudent.setCne(student.getCne());
+                if (student.getcIN() != null) {
+                    existingStudent.setcIN(student.getcIN());
                 }
-                if (student.getCin() != null) {
-                    existingStudent.setCin(student.getCin());
-                }
-                if (student.getBirthDay() != null) {
-                    existingStudent.setBirthDay(student.getBirthDay());
+                if (student.getDateNaissance() != null) {
+                    existingStudent.setDateNaissance(student.getDateNaissance());
                 }
 
                 return existingStudent;
@@ -160,7 +152,6 @@ public class StudentResource {
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of students in body.
      */
     @GetMapping("")
-    //@PreAuthorize("hasAuthority(\"" + AuthoritiesConstants.PROFESSOR + "\")")
     public List<Student> getAllStudents(@RequestParam(required = false, defaultValue = "true") boolean eagerload) {
         log.debug("REST request to get all Students");
         if (eagerload) {
@@ -177,7 +168,6 @@ public class StudentResource {
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the student, or with status {@code 404 (Not Found)}.
      */
     @GetMapping("/{id}")
-    @PreAuthorize("hasAuthority(\"" + AuthoritiesConstants.PROFESSOR + "\")")
     public ResponseEntity<Student> getStudent(@PathVariable Long id) {
         log.debug("REST request to get Student : {}", id);
         Optional<Student> student = studentRepository.findOneWithEagerRelationships(id);
@@ -191,7 +181,6 @@ public class StudentResource {
      * @return the {@link ResponseEntity} with status {@code 204 (NO_CONTENT)}.
      */
     @DeleteMapping("/{id}")
-    @PreAuthorize("hasAuthority(\"" + AuthoritiesConstants.PROFESSOR + "\")")
     public ResponseEntity<Void> deleteStudent(@PathVariable Long id) {
         log.debug("REST request to delete Student : {}", id);
         studentRepository.deleteById(id);

@@ -14,8 +14,8 @@ import { IStudent, NewStudent } from '../student.model';
 
 export type PartialUpdateStudent = Partial<IStudent> & Pick<IStudent, 'id'>;
 
-type RestOf<T extends IStudent | NewStudent> = Omit<T, 'birthDay'> & {
-  birthDay?: string | null;
+type RestOf<T extends IStudent | NewStudent> = Omit<T, 'dateNaissance'> & {
+  dateNaissance?: string | null;
 };
 
 export type RestStudent = RestOf<IStudent>;
@@ -105,14 +105,14 @@ export class StudentService {
   protected convertDateFromClient<T extends IStudent | NewStudent | PartialUpdateStudent>(student: T): RestOf<T> {
     return {
       ...student,
-      birthDay: student.birthDay?.format(DATE_FORMAT) ?? null,
+      dateNaissance: student.dateNaissance?.format(DATE_FORMAT) ?? null,
     };
   }
 
   protected convertDateFromServer(restStudent: RestStudent): IStudent {
     return {
       ...restStudent,
-      birthDay: restStudent.birthDay ? dayjs(restStudent.birthDay) : undefined,
+      dateNaissance: restStudent.dateNaissance ? dayjs(restStudent.dateNaissance) : undefined,
     };
   }
 

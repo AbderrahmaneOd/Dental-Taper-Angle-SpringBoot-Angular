@@ -4,22 +4,17 @@
   "entityTableName": "student",
   "fields": [
     {
-      "fieldName": "number",
+      "fieldName": "cNE",
       "fieldType": "String",
       "fieldValidateRules": ["required"]
     },
     {
-      "fieldName": "cne",
+      "fieldName": "cIN",
       "fieldType": "String",
       "fieldValidateRules": ["required"]
     },
     {
-      "fieldName": "cin",
-      "fieldType": "String",
-      "fieldValidateRules": ["required"]
-    },
-    {
-      "fieldName": "birthDay",
+      "fieldName": "dateNaissance",
       "fieldType": "LocalDate",
       "fieldValidateRules": ["required"]
     }

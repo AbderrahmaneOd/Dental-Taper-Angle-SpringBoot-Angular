@@ -3,31 +3,35 @@ import dayjs from 'dayjs/esm';
 import { IStudentPW, NewStudentPW } from './student-pw.model';
 
 export const sampleWithRequiredData: IStudentPW = {
-  id: 19704,
+  id: 27910,
 };
 
 export const sampleWithPartialData: IStudentPW = {
-  id: 16626,
+  id: 25538,
   imageFront: '../fake-data/blob/hipster.png',
   imageFrontContentType: 'unknown',
   imageSide: '../fake-data/blob/hipster.png',
   imageSideContentType: 'unknown',
   date: dayjs('2023-12-23'),
-  mesureAngle1: 'de façon que',
-  intersection: 'foule',
+  angleExterne1: 25041.81,
+  angleExterne2: 28624.01,
+  angledepouille1: 22099.67,
 };
 
 export const sampleWithFullData: IStudentPW = {
-  id: 30132,
-  time: 'bien que population du Québec délégation',
+  id: 7462,
   imageFront: '../fake-data/blob/hipster.png',
   imageFrontContentType: 'unknown',
   imageSide: '../fake-data/blob/hipster.png',
   imageSideContentType: 'unknown',
-  date: dayjs('2023-12-23'),
-  mesureAngle1: 'grâce à au-delà',
-  mesureAngle2: 'hi croâ outre',
-  intersection: 'jadis vraisemblablement',
+  date: dayjs('2023-12-22'),
+  angleInterne1: 13105.65,
+  angleInterne2: 22658.42,
+  angleExterne1: 20826.35,
+  angleExterne2: 30303.16,
+  angledepouille1: 8705.03,
+  angledepouille2: 3280.11,
+  angleConvergence: 1925.93,
 };
 
 export const sampleWithNewData: NewStudentPW = {

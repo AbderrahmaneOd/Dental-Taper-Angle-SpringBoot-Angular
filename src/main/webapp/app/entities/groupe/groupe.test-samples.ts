@@ -11,7 +11,7 @@ export const sampleWithPartialData: IGroupe = {
 export const sampleWithFullData: IGroupe = {
   id: 22204,
   code: 'considérable oups',
-  year: "pff rose à l'instar de",
+  annee: "pff rose à l'instar de",
 };
 
 export const sampleWithNewData: NewGroupe = {

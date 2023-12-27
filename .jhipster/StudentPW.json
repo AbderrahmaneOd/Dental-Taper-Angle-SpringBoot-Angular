@@ -4,10 +4,6 @@
   "entityTableName": "student_pw",
   "fields": [
     {
-      "fieldName": "time",
-      "fieldType": "String"
-    },
-    {
       "fieldName": "imageFront",
       "fieldType": "byte[]",
       "fieldTypeBlobContent": "image"
@@ -22,16 +18,32 @@
       "fieldType": "LocalDate"
     },
     {
-      "fieldName": "mesureAngle1",
-      "fieldType": "String"
+      "fieldName": "angleInterne1",
+      "fieldType": "Double"
     },
     {
-      "fieldName": "mesureAngle2",
-      "fieldType": "String"
+      "fieldName": "angleInterne2",
+      "fieldType": "Double"
     },
     {
-      "fieldName": "intersection",
-      "fieldType": "String"
+      "fieldName": "angleExterne1",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "angleExterne2",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "angledepouille1",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "angledepouille2",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "angleConvergence",
+      "fieldType": "Double"
     }
   ],
   "name": "StudentPW",

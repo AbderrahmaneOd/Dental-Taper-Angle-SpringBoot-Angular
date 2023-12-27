@@ -41,17 +41,14 @@ import org.springframework.transaction.annotation.Transactional;
 @WithMockUser
 class StudentResourceIT {
 
-    private static final String DEFAULT_NUMBER = "AAAAAAAAAA";
-    private static final String UPDATED_NUMBER = "BBBBBBBBBB";
+    private static final String DEFAULT_C_NE = "AAAAAAAAAA";
+    private static final String UPDATED_C_NE = "BBBBBBBBBB";
 
-    private static final String DEFAULT_CNE = "AAAAAAAAAA";
-    private static final String UPDATED_CNE = "BBBBBBBBBB";
+    private static final String DEFAULT_C_IN = "AAAAAAAAAA";
+    private static final String UPDATED_C_IN = "BBBBBBBBBB";
 
-    private static final String DEFAULT_CIN = "AAAAAAAAAA";
-    private static final String UPDATED_CIN = "BBBBBBBBBB";
-
-    private static final LocalDate DEFAULT_BIRTH_DAY = LocalDate.ofEpochDay(0L);
-    private static final LocalDate UPDATED_BIRTH_DAY = LocalDate.now(ZoneId.systemDefault());
+    private static final LocalDate DEFAULT_DATE_NAISSANCE = LocalDate.ofEpochDay(0L);
+    private static final LocalDate UPDATED_DATE_NAISSANCE = LocalDate.now(ZoneId.systemDefault());
 
     private static final String ENTITY_API_URL = "/api/students";
     private static final String ENTITY_API_URL_ID = ENTITY_API_URL + "/{id}";
@@ -80,7 +77,7 @@ class StudentResourceIT {
      * if they test an entity which requires the current entity.
      */
     public static Student createEntity(EntityManager em) {
-        Student student = new Student().number(DEFAULT_NUMBER).cne(DEFAULT_CNE).cin(DEFAULT_CIN).birthDay(DEFAULT_BIRTH_DAY);
+        Student student = new Student().cNE(DEFAULT_C_NE).cIN(DEFAULT_C_IN).dateNaissance(DEFAULT_DATE_NAISSANCE);
         // Add required entity
         User user = UserResourceIT.createEntity(em);
         em.persist(user);
@@ -96,7 +93,7 @@ class StudentResourceIT {
      * if they test an entity which requires the current entity.
      */
     public static Student createUpdatedEntity(EntityManager em) {
-        Student student = new Student().number(UPDATED_NUMBER).cne(UPDATED_CNE).cin(UPDATED_CIN).birthDay(UPDATED_BIRTH_DAY);
+        Student student = new Student().cNE(UPDATED_C_NE).cIN(UPDATED_C_IN).dateNaissance(UPDATED_DATE_NAISSANCE);
         // Add required entity
         User user = UserResourceIT.createEntity(em);
         em.persist(user);
@@ -128,10 +125,9 @@ class StudentResourceIT {
         List<Student> studentList = studentRepository.findAll();
         assertThat(studentList).hasSize(databaseSizeBeforeCreate + 1);
         Student testStudent = studentList.get(studentList.size() - 1);
-        assertThat(testStudent.getNumber()).isEqualTo(DEFAULT_NUMBER);
-        assertThat(testStudent.getCne()).isEqualTo(DEFAULT_CNE);
-        assertThat(testStudent.getCin()).isEqualTo(DEFAULT_CIN);
-        assertThat(testStudent.getBirthDay()).isEqualTo(DEFAULT_BIRTH_DAY);
+        assertThat(testStudent.getcNE()).isEqualTo(DEFAULT_C_NE);
+        assertThat(testStudent.getcIN()).isEqualTo(DEFAULT_C_IN);
+        assertThat(testStudent.getDateNaissance()).isEqualTo(DEFAULT_DATE_NAISSANCE);
     }
 
     @Test
@@ -159,10 +155,10 @@ class StudentResourceIT {
 
     @Test
     @Transactional
-    void checkNumberIsRequired() throws Exception {
+    void checkcNEIsRequired() throws Exception {
         int databaseSizeBeforeTest = studentRepository.findAll().size();
         // set the field null
-        student.setNumber(null);
+        student.setcNE(null);
 
         // Create the Student, which fails.
 
@@ -181,10 +177,10 @@ class StudentResourceIT {
 
     @Test
     @Transactional
-    void checkCneIsRequired() throws Exception {
+    void checkcINIsRequired() throws Exception {
         int databaseSizeBeforeTest = studentRepository.findAll().size();
         // set the field null
-        student.setCne(null);
+        student.setcIN(null);
 
         // Create the Student, which fails.
 
@@ -203,32 +199,10 @@ class StudentResourceIT {
 
     @Test
     @Transactional
-    void checkCinIsRequired() throws Exception {
+    void checkDateNaissanceIsRequired() throws Exception {
         int databaseSizeBeforeTest = studentRepository.findAll().size();
         // set the field null
-        student.setCin(null);
-
-        // Create the Student, which fails.
-
-        restStudentMockMvc
-            .perform(
-                post(ENTITY_API_URL)
-                    .with(csrf())
-                    .contentType(MediaType.APPLICATION_JSON)
-                    .content(TestUtil.convertObjectToJsonBytes(student))
-            )
-            .andExpect(status().isBadRequest());
-
-        List<Student> studentList = studentRepository.findAll();
-        assertThat(studentList).hasSize(databaseSizeBeforeTest);
-    }
-
-    @Test
-    @Transactional
-    void checkBirthDayIsRequired() throws Exception {
-        int databaseSizeBeforeTest = studentRepository.findAll().size();
-        // set the field null
-        student.setBirthDay(null);
+        student.setDateNaissance(null);
 
         // Create the Student, which fails.
 
@@ -257,10 +231,9 @@ class StudentResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(student.getId().intValue())))
-            .andExpect(jsonPath("$.[*].number").value(hasItem(DEFAULT_NUMBER)))
-            .andExpect(jsonPath("$.[*].cne").value(hasItem(DEFAULT_CNE)))
-            .andExpect(jsonPath("$.[*].cin").value(hasItem(DEFAULT_CIN)))
-            .andExpect(jsonPath("$.[*].birthDay").value(hasItem(DEFAULT_BIRTH_DAY.toString())));
+            .andExpect(jsonPath("$.[*].cNE").value(hasItem(DEFAULT_C_NE)))
+            .andExpect(jsonPath("$.[*].cIN").value(hasItem(DEFAULT_C_IN)))
+            .andExpect(jsonPath("$.[*].dateNaissance").value(hasItem(DEFAULT_DATE_NAISSANCE.toString())));
     }
 
     @SuppressWarnings({ "unchecked" })
@@ -292,10 +265,9 @@ class StudentResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.id").value(student.getId().intValue()))
-            .andExpect(jsonPath("$.number").value(DEFAULT_NUMBER))
-            .andExpect(jsonPath("$.cne").value(DEFAULT_CNE))
-            .andExpect(jsonPath("$.cin").value(DEFAULT_CIN))
-            .andExpect(jsonPath("$.birthDay").value(DEFAULT_BIRTH_DAY.toString()));
+            .andExpect(jsonPath("$.cNE").value(DEFAULT_C_NE))
+            .andExpect(jsonPath("$.cIN").value(DEFAULT_C_IN))
+            .andExpect(jsonPath("$.dateNaissance").value(DEFAULT_DATE_NAISSANCE.toString()));
     }
 
     @Test
@@ -317,7 +289,7 @@ class StudentResourceIT {
         Student updatedStudent = studentRepository.findById(student.getId()).orElseThrow();
         // Disconnect from session so that the updates on updatedStudent are not directly saved in db
         em.detach(updatedStudent);
-        updatedStudent.number(UPDATED_NUMBER).cne(UPDATED_CNE).cin(UPDATED_CIN).birthDay(UPDATED_BIRTH_DAY);
+        updatedStudent.cNE(UPDATED_C_NE).cIN(UPDATED_C_IN).dateNaissance(UPDATED_DATE_NAISSANCE);
 
         restStudentMockMvc
             .perform(
@@ -332,10 +304,9 @@ class StudentResourceIT {
         List<Student> studentList = studentRepository.findAll();
         assertThat(studentList).hasSize(databaseSizeBeforeUpdate);
         Student testStudent = studentList.get(studentList.size() - 1);
-        assertThat(testStudent.getNumber()).isEqualTo(UPDATED_NUMBER);
-        assertThat(testStudent.getCne()).isEqualTo(UPDATED_CNE);
-        assertThat(testStudent.getCin()).isEqualTo(UPDATED_CIN);
-        assertThat(testStudent.getBirthDay()).isEqualTo(UPDATED_BIRTH_DAY);
+        assertThat(testStudent.getcNE()).isEqualTo(UPDATED_C_NE);
+        assertThat(testStudent.getcIN()).isEqualTo(UPDATED_C_IN);
+        assertThat(testStudent.getDateNaissance()).isEqualTo(UPDATED_DATE_NAISSANCE);
     }
 
     @Test
@@ -410,7 +381,7 @@ class StudentResourceIT {
         Student partialUpdatedStudent = new Student();
         partialUpdatedStudent.setId(student.getId());
 
-        partialUpdatedStudent.number(UPDATED_NUMBER).cne(UPDATED_CNE).cin(UPDATED_CIN).birthDay(UPDATED_BIRTH_DAY);
+        partialUpdatedStudent.cNE(UPDATED_C_NE).cIN(UPDATED_C_IN).dateNaissance(UPDATED_DATE_NAISSANCE);
 
         restStudentMockMvc
             .perform(
@@ -425,10 +396,9 @@ class StudentResourceIT {
         List<Student> studentList = studentRepository.findAll();
         assertThat(studentList).hasSize(databaseSizeBeforeUpdate);
         Student testStudent = studentList.get(studentList.size() - 1);
-        assertThat(testStudent.getNumber()).isEqualTo(UPDATED_NUMBER);
-        assertThat(testStudent.getCne()).isEqualTo(UPDATED_CNE);
-        assertThat(testStudent.getCin()).isEqualTo(UPDATED_CIN);
-        assertThat(testStudent.getBirthDay()).isEqualTo(UPDATED_BIRTH_DAY);
+        assertThat(testStudent.getcNE()).isEqualTo(UPDATED_C_NE);
+        assertThat(testStudent.getcIN()).isEqualTo(UPDATED_C_IN);
+        assertThat(testStudent.getDateNaissance()).isEqualTo(UPDATED_DATE_NAISSANCE);
     }
 
     @Test
@@ -443,7 +413,7 @@ class StudentResourceIT {
         Student partialUpdatedStudent = new Student();
         partialUpdatedStudent.setId(student.getId());
 
-        partialUpdatedStudent.number(UPDATED_NUMBER).cne(UPDATED_CNE).cin(UPDATED_CIN).birthDay(UPDATED_BIRTH_DAY);
+        partialUpdatedStudent.cNE(UPDATED_C_NE).cIN(UPDATED_C_IN).dateNaissance(UPDATED_DATE_NAISSANCE);
 
         restStudentMockMvc
             .perform(
@@ -458,10 +428,9 @@ class StudentResourceIT {
         List<Student> studentList = studentRepository.findAll();
         assertThat(studentList).hasSize(databaseSizeBeforeUpdate);
         Student testStudent = studentList.get(studentList.size() - 1);
-        assertThat(testStudent.getNumber()).isEqualTo(UPDATED_NUMBER);
-        assertThat(testStudent.getCne()).isEqualTo(UPDATED_CNE);
-        assertThat(testStudent.getCin()).isEqualTo(UPDATED_CIN);
-        assertThat(testStudent.getBirthDay()).isEqualTo(UPDATED_BIRTH_DAY);
+        assertThat(testStudent.getcNE()).isEqualTo(UPDATED_C_NE);
+        assertThat(testStudent.getcIN()).isEqualTo(UPDATED_C_IN);
+        assertThat(testStudent.getDateNaissance()).isEqualTo(UPDATED_DATE_NAISSANCE);
     }
 
     @Test

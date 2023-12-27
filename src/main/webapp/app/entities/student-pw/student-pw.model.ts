@@ -4,15 +4,18 @@ import { IPW } from 'app/entities/pw/pw.model';
 
 export interface IStudentPW {
   id: number;
-  time?: string | null;
   imageFront?: string | null;
   imageFrontContentType?: string | null;
   imageSide?: string | null;
   imageSideContentType?: string | null;
   date?: dayjs.Dayjs | null;
-  mesureAngle1?: string | null;
-  mesureAngle2?: string | null;
-  intersection?: string | null;
+  angleInterne1?: number | null;
+  angleInterne2?: number | null;
+  angleExterne1?: number | null;
+  angleExterne2?: number | null;
+  angledepouille1?: number | null;
+  angledepouille2?: number | null;
+  angleConvergence?: number | null;
   student?: Pick<IStudent, 'id'> | null;
   pw?: Pick<IPW, 'id' | 'title'> | null;
 }

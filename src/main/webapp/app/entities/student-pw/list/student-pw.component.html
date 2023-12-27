@@ -3,7 +3,7 @@
     <span jhiTranslate="profEtudiantApp.studentPW.home.title">StudentPWS</span>
 
     <div class="d-flex justify-content-end">
-      <button class="btn btn-success btn-sm me-2" (click)="load()" [disabled]="isLoading">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
         <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
         <span jhiTranslate="profEtudiantApp.studentPW.home.refreshListLabel">Actualiser la liste</span>
       </button>
@@ -11,7 +11,7 @@
       <button
         id="jh-create-entity"
         data-cy="entityCreateButton"
-        class="btn btn-secondary btn-sm jh-create-entity create-student-pw"
+        class="btn btn-primary jh-create-entity create-student-pw"
         [routerLink]="['/student-pw/new']"
       >
         <fa-icon icon="plus"></fa-icon>
@@ -29,18 +29,12 @@
   </div>
 
   <div class="table-responsive table-entities" id="entities" *ngIf="studentPWS && studentPWS.length > 0">
-    <table class="table table-bordered" aria-describedby="page-heading">
+    <table class="table table-striped" aria-describedby="page-heading">
       <thead>
         <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
           <th scope="col" jhiSortBy="id">
             <div class="d-flex">
               <span jhiTranslate="global.field.id">ID</span>
-              <fa-icon class="p-1" icon="sort"></fa-icon>
-            </div>
-          </th>
-          <th scope="col" jhiSortBy="time">
-            <div class="d-flex">
-              <span jhiTranslate="profEtudiantApp.studentPW.time">Time</span>
               <fa-icon class="p-1" icon="sort"></fa-icon>
             </div>
           </th>
@@ -62,21 +56,45 @@
               <fa-icon class="p-1" icon="sort"></fa-icon>
             </div>
           </th>
-          <th scope="col" jhiSortBy="mesureAngle1">
+          <th scope="col" jhiSortBy="angleInterne1">
             <div class="d-flex">
-              <span jhiTranslate="profEtudiantApp.studentPW.mesureAngle1">Mesure Angle 1</span>
+              <span jhiTranslate="profEtudiantApp.studentPW.angleInterne1">Angle Interne 1</span>
               <fa-icon class="p-1" icon="sort"></fa-icon>
             </div>
           </th>
-          <th scope="col" jhiSortBy="mesureAngle2">
+          <th scope="col" jhiSortBy="angleInterne2">
             <div class="d-flex">
-              <span jhiTranslate="profEtudiantApp.studentPW.mesureAngle2">Mesure Angle 2</span>
+              <span jhiTranslate="profEtudiantApp.studentPW.angleInterne2">Angle Interne 2</span>
               <fa-icon class="p-1" icon="sort"></fa-icon>
             </div>
           </th>
-          <th scope="col" jhiSortBy="intersection">
+          <th scope="col" jhiSortBy="angleExterne1">
             <div class="d-flex">
-              <span jhiTranslate="profEtudiantApp.studentPW.intersection">Intersection</span>
+              <span jhiTranslate="profEtudiantApp.studentPW.angleExterne1">Angle Externe 1</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="angleExterne2">
+            <div class="d-flex">
+              <span jhiTranslate="profEtudiantApp.studentPW.angleExterne2">Angle Externe 2</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="angledepouille1">
+            <div class="d-flex">
+              <span jhiTranslate="profEtudiantApp.studentPW.angledepouille1">Angledepouille 1</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="angledepouille2">
+            <div class="d-flex">
+              <span jhiTranslate="profEtudiantApp.studentPW.angledepouille2">Angledepouille 2</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="angleConvergence">
+            <div class="d-flex">
+              <span jhiTranslate="profEtudiantApp.studentPW.angleConvergence">Angle Convergence</span>
               <fa-icon class="p-1" icon="sort"></fa-icon>
             </div>
           </th>
@@ -92,11 +110,7 @@
               <fa-icon class="p-1" icon="sort"></fa-icon>
             </div>
           </th>
-          <th scope="col">
-            <div class="d-flex justify-content-center">
-              <span>Action</span>
-            </div>
-          </th>
+          <th scope="col"></th>
         </tr>
       </thead>
       <tbody>
@@ -104,7 +118,6 @@
           <td>
             <a [routerLink]="['/student-pw', studentPW.id, 'view']">{{ studentPW.id }}</a>
           </td>
-          <td>{{ studentPW.time }}</td>
           <td>
             <a *ngIf="studentPW.imageFront" (click)="openFile(studentPW.imageFront, studentPW.imageFrontContentType)">
               <img
@@ -126,9 +139,13 @@
             <span *ngIf="studentPW.imageSide">{{ studentPW.imageSideContentType }}, {{ byteSize(studentPW.imageSide) }}</span>
           </td>
           <td>{{ studentPW.date | formatMediumDate }}</td>
-          <td>{{ studentPW.mesureAngle1 }}</td>
-          <td>{{ studentPW.mesureAngle2 }}</td>
-          <td>{{ studentPW.intersection }}</td>
+          <td>{{ studentPW.angleInterne1 }}</td>
+          <td>{{ studentPW.angleInterne2 }}</td>
+          <td>{{ studentPW.angleExterne1 }}</td>
+          <td>{{ studentPW.angleExterne2 }}</td>
+          <td>{{ studentPW.angledepouille1 }}</td>
+          <td>{{ studentPW.angledepouille2 }}</td>
+          <td>{{ studentPW.angleConvergence }}</td>
           <td>
             <div *ngIf="studentPW.student">
               <a [routerLink]="['/student', studentPW.student.id, 'view']">{{ studentPW.student.id }}</a>
@@ -140,18 +157,18 @@
             </div>
           </td>
           <td class="text-end">
-            <div class="d-flex justify-content-center">
-              <a [routerLink]="['/student-pw', studentPW.id, 'view']" class="btn btn-outline-info btn-sm" data-cy="entityDetailsButton">
+            <div class="btn-group">
+              <a [routerLink]="['/student-pw', studentPW.id, 'view']" class="btn btn-info btn-sm" data-cy="entityDetailsButton">
                 <fa-icon icon="eye"></fa-icon>
                 <span class="d-none d-md-inline" jhiTranslate="entity.action.view">Voir</span>
               </a>
 
-              <a [routerLink]="['/student-pw', studentPW.id, 'edit']" class="btn btn-outline-primary btn-sm" data-cy="entityEditButton">
+              <a [routerLink]="['/student-pw', studentPW.id, 'edit']" class="btn btn-primary btn-sm" data-cy="entityEditButton">
                 <fa-icon icon="pencil-alt"></fa-icon>
                 <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Editer</span>
               </a>
 
-              <button type="submit" (click)="delete(studentPW)" class="btn btn-outline-danger btn-sm" data-cy="entityDeleteButton">
+              <button type="submit" (click)="delete(studentPW)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
                 <fa-icon icon="times"></fa-icon>
                 <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Supprimer</span>
               </button>

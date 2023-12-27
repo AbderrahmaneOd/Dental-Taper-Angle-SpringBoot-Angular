@@ -18,13 +18,16 @@
         "title": "Student PW"
       },
       "id": "ID",
-      "time": "Time",
       "imageFront": "Image Front",
       "imageSide": "Image Side",
       "date": "Date",
-      "mesureAngle1": "Mesure Angle 1",
-      "mesureAngle2": "Mesure Angle 2",
-      "intersection": "Intersection",
+      "angleInterne1": "Angle Interne 1",
+      "angleInterne2": "Angle Interne 2",
+      "angleExterne1": "Angle Externe 1",
+      "angleExterne2": "Angle Externe 2",
+      "angledepouille1": "Angledepouille 1",
+      "angledepouille2": "Angledepouille 2",
+      "angleConvergence": "Angle Convergence",
       "student": "Student",
       "pw": "Pw"
     }

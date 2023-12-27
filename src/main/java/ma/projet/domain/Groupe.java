@@ -25,8 +25,8 @@ public class Groupe implements Serializable {
     @Column(name = "code")
     private String code;
 
-    @Column(name = "year")
-    private String year;
+    @Column(name = "annee")
+    private String annee;
 
     @ManyToOne(optional = false)
     @NotNull
@@ -69,17 +69,17 @@ public class Groupe implements Serializable {
         this.code = code;
     }
 
-    public String getYear() {
-        return this.year;
+    public String getAnnee() {
+        return this.annee;
     }
 
-    public Groupe year(String year) {
-        this.setYear(year);
+    public Groupe annee(String annee) {
+        this.setAnnee(annee);
         return this;
     }
 
-    public void setYear(String year) {
-        this.year = year;
+    public void setAnnee(String annee) {
+        this.annee = annee;
     }
 
     public Professor getProfessor() {
@@ -182,7 +182,7 @@ public class Groupe implements Serializable {
         return "Groupe{" +
             "id=" + getId() +
             ", code='" + getCode() + "'" +
-            ", year='" + getYear() + "'" +
+            ", annee='" + getAnnee() + "'" +
             "}";
     }
 }

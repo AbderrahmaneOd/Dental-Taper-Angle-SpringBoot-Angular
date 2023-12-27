@@ -14,54 +14,50 @@
         </div>
 
         <div class="mb-3">
-          <label class="form-label" jhiTranslate="profEtudiantApp.student.number" for="field_number">Number</label>
-          <input type="text" class="form-control" name="number" id="field_number" data-cy="number" formControlName="number" />
-          <div *ngIf="editForm.get('number')!.invalid && (editForm.get('number')!.dirty || editForm.get('number')!.touched)">
-            <small class="form-text text-danger" *ngIf="editForm.get('number')?.errors?.required" jhiTranslate="entity.validation.required"
+          <label class="form-label" jhiTranslate="profEtudiantApp.student.cNE" for="field_cNE">C NE</label>
+          <input type="text" class="form-control" name="cNE" id="field_cNE" data-cy="cNE" formControlName="cNE" />
+          <div *ngIf="editForm.get('cNE')!.invalid && (editForm.get('cNE')!.dirty || editForm.get('cNE')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('cNE')?.errors?.required" jhiTranslate="entity.validation.required"
               >Ce champ est obligatoire.</small
             >
           </div>
         </div>
 
         <div class="mb-3">
-          <label class="form-label" jhiTranslate="profEtudiantApp.student.cne" for="field_cne">Cne</label>
-          <input type="text" class="form-control" name="cne" id="field_cne" data-cy="cne" formControlName="cne" />
-          <div *ngIf="editForm.get('cne')!.invalid && (editForm.get('cne')!.dirty || editForm.get('cne')!.touched)">
-            <small class="form-text text-danger" *ngIf="editForm.get('cne')?.errors?.required" jhiTranslate="entity.validation.required"
+          <label class="form-label" jhiTranslate="profEtudiantApp.student.cIN" for="field_cIN">C IN</label>
+          <input type="text" class="form-control" name="cIN" id="field_cIN" data-cy="cIN" formControlName="cIN" />
+          <div *ngIf="editForm.get('cIN')!.invalid && (editForm.get('cIN')!.dirty || editForm.get('cIN')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('cIN')?.errors?.required" jhiTranslate="entity.validation.required"
               >Ce champ est obligatoire.</small
             >
           </div>
         </div>
 
         <div class="mb-3">
-          <label class="form-label" jhiTranslate="profEtudiantApp.student.cin" for="field_cin">Cin</label>
-          <input type="text" class="form-control" name="cin" id="field_cin" data-cy="cin" formControlName="cin" />
-          <div *ngIf="editForm.get('cin')!.invalid && (editForm.get('cin')!.dirty || editForm.get('cin')!.touched)">
-            <small class="form-text text-danger" *ngIf="editForm.get('cin')?.errors?.required" jhiTranslate="entity.validation.required"
-              >Ce champ est obligatoire.</small
-            >
-          </div>
-        </div>
-
-        <div class="mb-3">
-          <label class="form-label" jhiTranslate="profEtudiantApp.student.birthDay" for="field_birthDay">Birth Day</label>
+          <label class="form-label" jhiTranslate="profEtudiantApp.student.dateNaissance" for="field_dateNaissance">Date Naissance</label>
           <div class="input-group">
             <input
-              id="field_birthDay"
-              data-cy="birthDay"
+              id="field_dateNaissance"
+              data-cy="dateNaissance"
               type="text"
               class="form-control"
-              name="birthDay"
+              name="dateNaissance"
               ngbDatepicker
-              #birthDayDp="ngbDatepicker"
-              formControlName="birthDay"
+              #dateNaissanceDp="ngbDatepicker"
+              formControlName="dateNaissance"
             />
-            <button type="button" class="btn btn-secondary" (click)="birthDayDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+            <button type="button" class="btn btn-secondary" (click)="dateNaissanceDp.toggle()">
+              <fa-icon icon="calendar-alt"></fa-icon>
+            </button>
           </div>
-          <div *ngIf="editForm.get('birthDay')!.invalid && (editForm.get('birthDay')!.dirty || editForm.get('birthDay')!.touched)">
+          <div
+            *ngIf="
+              editForm.get('dateNaissance')!.invalid && (editForm.get('dateNaissance')!.dirty || editForm.get('dateNaissance')!.touched)
+            "
+          >
             <small
               class="form-text text-danger"
-              *ngIf="editForm.get('birthDay')?.errors?.required"
+              *ngIf="editForm.get('dateNaissance')?.errors?.required"
               jhiTranslate="entity.validation.required"
               >Ce champ est obligatoire.</small
             >

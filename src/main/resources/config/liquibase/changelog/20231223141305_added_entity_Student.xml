@@ -14,16 +14,13 @@
             <column name="id" type="bigint" autoIncrement="true" startWith="1500">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
-            <column name="number" type="varchar(255)">
+            <column name="c_ne" type="varchar(255)">
                 <constraints nullable="false" />
             </column>
-            <column name="cne" type="varchar(255)">
+            <column name="c_in" type="varchar(255)">
                 <constraints nullable="false" />
             </column>
-            <column name="cin" type="varchar(255)">
-                <constraints nullable="false" />
-            </column>
-            <column name="birth_day" type="date">
+            <column name="date_naissance" type="date">
                 <constraints nullable="false" />
             </column>
             <column name="user_id" type="bigint">
@@ -53,10 +50,9 @@
                   tableName="student"
                   usePreparedStatements="true">
             <column name="id" type="numeric"/>
-            <column name="number" type="string"/>
-            <column name="cne" type="string"/>
-            <column name="cin" type="string"/>
-            <column name="birth_day" type="date"/>
+            <column name="c_ne" type="string"/>
+            <column name="c_in" type="string"/>
+            <column name="date_naissance" type="date"/>
             <column name="user_id" type="numeric"/>
             <!-- jhipster-needle-liquibase-add-loadcolumn - JHipster (and/or extensions) can add load columns here -->
         </loadData>

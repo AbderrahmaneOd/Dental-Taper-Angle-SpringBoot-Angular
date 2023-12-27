@@ -9,7 +9,7 @@ import { StudentService, RestStudent } from './student.service';
 
 const requireRestSample: RestStudent = {
   ...sampleWithRequiredData,
-  birthDay: sampleWithRequiredData.birthDay?.format(DATE_FORMAT),
+  dateNaissance: sampleWithRequiredData.dateNaissance?.format(DATE_FORMAT),
 };
 
 describe('Student Service', () => {

@@ -18,10 +18,9 @@ type StudentFormDefaults = Pick<NewStudent, 'id'>;
 
 type StudentFormGroupContent = {
   id: FormControl<IStudent['id'] | NewStudent['id']>;
-  number: FormControl<IStudent['number']>;
-  cne: FormControl<IStudent['cne']>;
-  cin: FormControl<IStudent['cin']>;
-  birthDay: FormControl<IStudent['birthDay']>;
+  cNE: FormControl<IStudent['cNE']>;
+  cIN: FormControl<IStudent['cIN']>;
+  dateNaissance: FormControl<IStudent['dateNaissance']>;
   user: FormControl<IStudent['user']>;
   groupe: FormControl<IStudent['groupe']>;
 };
@@ -43,16 +42,13 @@ export class StudentFormService {
           validators: [Validators.required],
         },
       ),
-      number: new FormControl(studentRawValue.number, {
+      cNE: new FormControl(studentRawValue.cNE, {
         validators: [Validators.required],
       }),
-      cne: new FormControl(studentRawValue.cne, {
+      cIN: new FormControl(studentRawValue.cIN, {
         validators: [Validators.required],
       }),
-      cin: new FormControl(studentRawValue.cin, {
-        validators: [Validators.required],
-      }),
-      birthDay: new FormControl(studentRawValue.birthDay, {
+      dateNaissance: new FormControl(studentRawValue.dateNaissance, {
         validators: [Validators.required],
       }),
       user: new FormControl(studentRawValue.user, {

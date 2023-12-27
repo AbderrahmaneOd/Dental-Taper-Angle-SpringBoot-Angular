@@ -22,20 +22,16 @@ public class Student implements Serializable {
     private Long id;
 
     @NotNull
-    @Column(name = "number", nullable = false)
-    private String number;
+    @Column(name = "c_ne", nullable = false)
+    private String cNE;
 
     @NotNull
-    @Column(name = "cne", nullable = false)
-    private String cne;
+    @Column(name = "c_in", nullable = false)
+    private String cIN;
 
     @NotNull
-    @Column(name = "cin", nullable = false)
-    private String cin;
-
-    @NotNull
-    @Column(name = "birth_day", nullable = false)
-    private LocalDate birthDay;
+    @Column(name = "date_naissance", nullable = false)
+    private LocalDate dateNaissance;
 
     @OneToOne(fetch = FetchType.LAZY, optional = false)
     @NotNull
@@ -61,56 +57,43 @@ public class Student implements Serializable {
         this.id = id;
     }
 
-    public String getNumber() {
-        return this.number;
+    public String getcNE() {
+        return this.cNE;
     }
 
-    public Student number(String number) {
-        this.setNumber(number);
+    public Student cNE(String cNE) {
+        this.setcNE(cNE);
         return this;
     }
 
-    public void setNumber(String number) {
-        this.number = number;
+    public void setcNE(String cNE) {
+        this.cNE = cNE;
     }
 
-    public String getCne() {
-        return this.cne;
+    public String getcIN() {
+        return this.cIN;
     }
 
-    public Student cne(String cne) {
-        this.setCne(cne);
+    public Student cIN(String cIN) {
+        this.setcIN(cIN);
         return this;
     }
 
-    public void setCne(String cne) {
-        this.cne = cne;
+    public void setcIN(String cIN) {
+        this.cIN = cIN;
     }
 
-    public String getCin() {
-        return this.cin;
+    public LocalDate getDateNaissance() {
+        return this.dateNaissance;
     }
 
-    public Student cin(String cin) {
-        this.setCin(cin);
+    public Student dateNaissance(LocalDate dateNaissance) {
+        this.setDateNaissance(dateNaissance);
         return this;
     }
 
-    public void setCin(String cin) {
-        this.cin = cin;
-    }
-
-    public LocalDate getBirthDay() {
-        return this.birthDay;
-    }
-
-    public Student birthDay(LocalDate birthDay) {
-        this.setBirthDay(birthDay);
-        return this;
-    }
-
-    public void setBirthDay(LocalDate birthDay) {
-        this.birthDay = birthDay;
+    public void setDateNaissance(LocalDate dateNaissance) {
+        this.dateNaissance = dateNaissance;
     }
 
     public User getUser() {
@@ -163,10 +146,9 @@ public class Student implements Serializable {
     public String toString() {
         return "Student{" +
             "id=" + getId() +
-            ", number='" + getNumber() + "'" +
-            ", cne='" + getCne() + "'" +
-            ", cin='" + getCin() + "'" +
-            ", birthDay='" + getBirthDay() + "'" +
+            ", cNE='" + getcNE() + "'" +
+            ", cIN='" + getcIN() + "'" +
+            ", dateNaissance='" + getDateNaissance() + "'" +
             "}";
     }
 }
